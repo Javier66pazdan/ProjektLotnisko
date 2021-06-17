@@ -12,17 +12,34 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ProjektLotnisko.DAL;
+using ProjektLotnisko.DbClasses;
 
 namespace ProjektLotnisko
 {
     /// <summary>
     /// Logika interakcji dla klasy MainWindow.xaml
     /// </summary>
+    /// 
+    
     public partial class MainWindow : Window
     {
+        AirportManagementContext db;
         public MainWindow()
         {
             InitializeComponent();
+            db = new AirportManagementContext();
+            /*var users = new List<User>
+            {
+                new User{Email="admin",Password="admin",FirstName="admin",LastName="admin",
+                    SignUpDate=new DateTime(2000,5,1,8,30,52), AdressStreet="adminowa",AdressNumber="123"
+                    ,Country="Poland" }
+            };
+            users.ForEach(s => db.Users.Add(s));
+            MessageBox.Show("ZAPISANO");
+            db.SaveChanges();
+            db.Dispose();*/
+
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -32,9 +49,20 @@ namespace ProjektLotnisko
 
         private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainPage noweOkno = new MainPage();
-            this.Close();
-            noweOkno.ShowDialog();
+            string email = emailField.Text;
+            //string password = passwordField.GetValue();
+            if (db.Users.Any(o => o.Email == email && o.Password == "admin"))
+            {
+                MainPage noweOkno = new MainPage();
+                this.Close();
+                noweOkno.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("ZLE DANE");
+            }
+
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
