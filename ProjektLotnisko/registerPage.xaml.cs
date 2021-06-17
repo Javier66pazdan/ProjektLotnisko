@@ -35,5 +35,10 @@ namespace ProjektLotnisko
             this.Close();
             loginWind.ShowDialog();
         }
+
+        private void registerBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

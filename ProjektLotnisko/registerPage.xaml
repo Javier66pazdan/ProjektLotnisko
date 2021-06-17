@@ -15,7 +15,7 @@
         <TextBox x:Name="passwordField" HorizontalAlignment="Left" Height="63" Margin="302,287,0,0" TextWrapping="Wrap" Text="Powtorz haslo" VerticalAlignment="Top" Width="240" FontSize="36"/>
         <TextBox x:Name="cityField" HorizontalAlignment="Left" Height="63" Margin="36,381,0,0" TextWrapping="Wrap" Text="Miasto" VerticalAlignment="Top" Width="240" FontSize="36"/>
         <TextBox x:Name="countryField" HorizontalAlignment="Left" Height="63" Margin="302,381,0,0" TextWrapping="Wrap" Text="Kraj" VerticalAlignment="Top" Width="240" FontSize="36"/>
-        <Button x:Name="registerBtn" Content="Zarejestruj" HorizontalAlignment="Left" Margin="36,474,0,0" VerticalAlignment="Top" Width="240" Height="65" FontSize="36"/>
+        <Button x:Name="registerBtn" Content="Zarejestruj" HorizontalAlignment="Left" Margin="36,474,0,0" VerticalAlignment="Top" Width="240" Height="65" FontSize="36" Click="registerBtn_Click"/>
         <Button x:Name="returnBtn" Content="Wstecz" HorizontalAlignment="Left" Margin="302,474,0,0" VerticalAlignment="Top" Width="240" Height="65" FontSize="36" Click="returnBtn_Click"/>
 
     </Grid>
