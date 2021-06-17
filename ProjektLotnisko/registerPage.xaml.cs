@@ -10,38 +10,30 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ProjektLotnisko
 {
     /// <summary>
-    /// Logika interakcji dla klasy MainWindow.xaml
+    /// Logika interakcji dla klasy registerPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class registerPage : Window
     {
-        public MainWindow()
+        public registerPage()
         {
             InitializeComponent();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
+
         }
 
-        private void loginBtn_Click(object sender, RoutedEventArgs e)
+        private void returnBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainPage noweOkno = new MainPage();
+            MainWindow loginWind = new MainWindow();
             this.Close();
-            noweOkno.ShowDialog();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            registerPage register = new registerPage();
-            this.Close();
-            register.ShowDialog();
+            loginWind.ShowDialog();
         }
     }
 }

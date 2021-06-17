@@ -1,0 +1,22 @@
+﻿<Window x:Class="ProjektLotnisko.registerPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjektLotnisko"
+        mc:Ignorable="d"
+        Title="registerPage" Height="600" Width="575.354" Background="#FFF9F6F6" HorizontalAlignment="Center">
+    <Grid>
+        <Label x:Name="registerLabel" Content="Rejestracja" HorizontalAlignment="Center" Margin="0,26,0,0" VerticalAlignment="Top" Height="78" Width="189" FontSize="36"/>
+        <TextBox x:Name="nameField" HorizontalAlignment="Left" Height="63" Margin="36,117,0,0" TextWrapping="Wrap" Text="Imię" VerticalAlignment="Top" Width="240" FontSize="36"/>
+        <TextBox x:Name="surnameField" HorizontalAlignment="Right" Height="63" Margin="0,117,26.8,0" TextWrapping="Wrap" Text="Nazwisko" VerticalAlignment="Top" Width="240" TextChanged="TextBox_TextChanged" FontSize="36"/>
+        <TextBox x:Name="emailField" HorizontalAlignment="Left" Height="63" Margin="36,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="506" FontSize="36" Text="Email"/>
+        <TextBox x:Name="passwordField1" HorizontalAlignment="Left" Height="63" Margin="36,287,0,0" TextWrapping="Wrap" Text="Haslo" VerticalAlignment="Top" Width="240" FontSize="36"/>
+        <TextBox x:Name="passwordField" HorizontalAlignment="Left" Height="63" Margin="302,287,0,0" TextWrapping="Wrap" Text="Powtorz haslo" VerticalAlignment="Top" Width="240" FontSize="36"/>
+        <TextBox x:Name="cityField" HorizontalAlignment="Left" Height="63" Margin="36,381,0,0" TextWrapping="Wrap" Text="Miasto" VerticalAlignment="Top" Width="240" FontSize="36"/>
+        <TextBox x:Name="countryField" HorizontalAlignment="Left" Height="63" Margin="302,381,0,0" TextWrapping="Wrap" Text="Kraj" VerticalAlignment="Top" Width="240" FontSize="36"/>
+        <Button x:Name="registerBtn" Content="Zarejestruj" HorizontalAlignment="Left" Margin="36,474,0,0" VerticalAlignment="Top" Width="240" Height="65" FontSize="36"/>
+        <Button x:Name="returnBtn" Content="Wstecz" HorizontalAlignment="Left" Margin="302,474,0,0" VerticalAlignment="Top" Width="240" Height="65" FontSize="36" Click="returnBtn_Click"/>
+
+    </Grid>
+</Window>
