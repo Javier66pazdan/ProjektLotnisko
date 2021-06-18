@@ -49,9 +49,9 @@ namespace ProjektLotnisko
 
         private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
-            string email = emailField.Text;
+            // string email = emailField.Text;
             //string password = passwordField.GetValue();
-            if (db.Users.Any(o => o.Email == email && o.Password == "admin"))
+            if (db.Users.Any(o => o.Email == emailField.Text && o.Password == passwordField.Text))
             {
                 MainPage noweOkno = new MainPage();
                 this.Close();
@@ -70,6 +70,21 @@ namespace ProjektLotnisko
             registerPage register = new registerPage();
             this.Close();
             register.ShowDialog();
+        }
+
+
+        // 
+        private void emailField_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if(emailField.Text == "EMAIL")
+                emailField.Clear();
+        }
+
+        private void emailField_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if(emailField.Text == "")  
+                emailField.Text = "EMAIL";
+
         }
     }
 }

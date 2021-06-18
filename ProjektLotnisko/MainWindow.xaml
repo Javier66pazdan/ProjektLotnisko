@@ -12,10 +12,10 @@
             <RowDefinition Height="167*"/>
         </Grid.RowDefinitions>
         <Label x:Name="loginLabel" Content="Logowanie" HorizontalAlignment="Left" Margin="161,10,0,0" VerticalAlignment="Top" Height="75" Width="258" FontSize="48"/>
-        <TextBox x:Name="emailField" HorizontalAlignment="Center" Height="63" Margin="159,108,156.8,0" TextWrapping="Wrap" Text="EMAIL" VerticalAlignment="Top" Width="253" TextChanged="TextBox_TextChanged" FontSize="36"/>
-        <PasswordBox x:Name="passwordField" HorizontalAlignment="Left" Margin="159,192,0,0" VerticalAlignment="Top" Height="64" Width="253" Password="HASLO" FontSize="36"/>
+        <TextBox x:Name="emailField" HorizontalAlignment="Center" Height="63" Margin="159,108,156.8,0" TextWrapping="Wrap" Text="EMAIL" VerticalAlignment="Top" Width="253" TextChanged="TextBox_TextChanged" FontSize="36" PreviewMouseDown="emailField_PreviewMouseDown" LostFocus="emailField_LostFocus"/>
         <Button x:Name="loginBtn" Content="Zaloguj" HorizontalAlignment="Center" Margin="189,291,189.8,0" VerticalAlignment="Top" Width="190" Height="75" FontSize="36" Click="loginBtn_Click" Grid.RowSpan="2"/>
         <Button x:Name="toRegisterBtn" Content="Nie masz konta? Utwórz" HorizontalAlignment="Left" Margin="112,67.2,0,0" VerticalAlignment="Top" Width="349" Height="67" FontSize="24" Click="Button_Click" Grid.Row="1"/>
+        <TextBox x:Name="passwordField" HorizontalAlignment="Left" Height="63" Margin="159,198,0,0" TextWrapping="Wrap" Text="Haslo" VerticalAlignment="Top" Width="253" FontSize="36"/>
 
     </Grid>
 </Window>
