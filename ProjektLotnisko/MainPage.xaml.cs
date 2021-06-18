@@ -23,5 +23,11 @@ namespace ProjektLotnisko
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            administratorPanel.Visibility = Visibility.Hidden;
+        }
     }
 }

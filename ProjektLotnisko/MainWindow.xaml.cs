@@ -86,5 +86,10 @@ namespace ProjektLotnisko
                 emailField.Text = "EMAIL";
 
         }
+
+        private void passwordField_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }
