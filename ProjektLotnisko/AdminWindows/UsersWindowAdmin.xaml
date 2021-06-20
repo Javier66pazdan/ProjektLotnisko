@@ -1,0 +1,49 @@
+﻿<Window x:Class="ProjektLotnisko.AdminWindows.UsersWindowAdmin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjektLotnisko.AdminWindows"
+        mc:Ignorable="d"
+        Title="Panel zarządzania użytkownikami" Height="450" Width="1020">
+    <Grid>
+        <ListView x:Name="UserListView" HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="677" SelectionChanged="UserListView_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Path=UserId}" />
+                    <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Path=Email}" />
+                    <GridViewColumn Header="Password" DisplayMemberBinding="{Binding Path=Password}" />
+                    <GridViewColumn Header="Imię" DisplayMemberBinding="{Binding Path=FirstName}" />
+                    <GridViewColumn Header="Nazwisko" DisplayMemberBinding="{Binding Path=LastName}" />
+                    <GridViewColumn Header="Dołączył" DisplayMemberBinding="{Binding Path=SignUpDate}" />
+                    <GridViewColumn Header="Ulica" DisplayMemberBinding="{Binding Path=AdressStreet}" />
+                    <GridViewColumn Header="Nr" DisplayMemberBinding="{Binding Path=AdressNumber}" />
+                    <GridViewColumn Header="Miasto" DisplayMemberBinding="{Binding Path=City}" />
+                    <GridViewColumn Header="Kraj" DisplayMemberBinding="{Binding Path=Country}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBox x:Name="emailField" HorizontalAlignment="Left" Height="23" Margin="817,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Email, Mode=TwoWay}"/>
+        <TextBox x:Name="passwordField" HorizontalAlignment="Left" Height="23" Margin="817,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Password, Mode=TwoWay}"/>
+        <TextBox x:Name="firstNameField" HorizontalAlignment="Left" Height="23" Margin="817,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding FirstName, Mode=TwoWay}"/>
+        <TextBox x:Name="lastNameField" HorizontalAlignment="Left" Height="23" Margin="817,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding LastName, Mode=TwoWay}"/>
+        <TextBox x:Name="joinedField" HorizontalAlignment="Left" Height="23" Margin="817,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding SignUpDate, Mode=TwoWay}"/>
+        <TextBox x:Name="streetField" HorizontalAlignment="Left" Height="23" Margin="817,158,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding AdressStreet, Mode=TwoWay}"/>
+        <TextBox x:Name="numberField" HorizontalAlignment="Left" Height="23" Margin="817,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding AdressNumber, Mode=TwoWay}"/>
+        <TextBox x:Name="cityField" HorizontalAlignment="Left" Height="23" Margin="817,214,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding City, Mode=TwoWay}"/>
+        <TextBox x:Name="countryField" HorizontalAlignment="Left" Height="23" Margin="817,242,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Country, Mode=TwoWay}"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="739,17,0,0" VerticalAlignment="Top"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="739,46,0,0" VerticalAlignment="Top"/>
+        <Label Content="Imię" HorizontalAlignment="Left" Margin="739,74,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.664,1.931"/>
+        <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="739,102,0,0" VerticalAlignment="Top"/>
+        <Label Content="Dołączył" HorizontalAlignment="Left" Margin="739,130,0,0" VerticalAlignment="Top"/>
+        <Label Content="Ulica" HorizontalAlignment="Left" Margin="739,158,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nr" HorizontalAlignment="Left" Margin="739,186,0,0" VerticalAlignment="Top"/>
+        <Label Content="Miasto" HorizontalAlignment="Left" Margin="739,214,0,0" VerticalAlignment="Top"/>
+        <Label Content="Kraj" HorizontalAlignment="Left" Margin="739,242,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="buttonAddUser" Content="Dodaj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="850,290,0,0" Click="buttonAddUser_Click"/>
+        <Button x:Name="buttonRemoveUser" Content="Usun" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="850,315,0,0" Click="buttonRemoveUser_Click"/>
+        <Button x:Name="buttonEditUser" Content="Zapisz" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="850,340,0,0" Click="buttonEditUser_Click"/>
+
+    </Grid>
+</Window>

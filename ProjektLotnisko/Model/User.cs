@@ -16,6 +16,7 @@ namespace ProjektLotnisko.DbClasses
         public DateTime SignUpDate { get; set; }
         public string AdressStreet { get; set; }
         public string AdressNumber { get; set; }
+        public string City { get; set; }
         public string Country { get; set; }
     }
 }

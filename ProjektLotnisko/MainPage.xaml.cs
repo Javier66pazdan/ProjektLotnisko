@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ProjektLotnisko.AdminWindows;
 
 namespace ProjektLotnisko
 {
@@ -27,7 +28,13 @@ namespace ProjektLotnisko
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
-            administratorPanel.Visibility = Visibility.Hidden;
+            //administratorPanel.Visibility = Visibility.Hidden;
+        }
+
+        private void UserPanelButton_Click(object sender, RoutedEventArgs e)
+        {
+            UsersWindowAdmin usersWindowAdmin = new UsersWindowAdmin();
+            usersWindowAdmin.ShowDialog();
         }
     }
 }

@@ -67,9 +67,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AdminWindows\FlightsWindowAdmin.xaml.cs">
+      <DependentUpon>FlightsWindowAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminWindows\UsersWindowAdmin.xaml.cs">
+      <DependentUpon>UsersWindowAdmin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DAL\AirportInitializer.cs" />
     <Compile Include="DAL\AirportManagementContext.cs" />
     <Compile Include="DAL\Model1.cs" />
+    <Compile Include="DAL\UsersManagement.cs" />
     <Compile Include="Model\Airline.cs" />
     <Compile Include="Model\Airport.cs" />
     <Compile Include="Model\Flight.cs" />
@@ -78,6 +85,14 @@
     <Compile Include="registerPage.xaml.cs">
       <DependentUpon>registerPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="AdminWindows\FlightsWindowAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminWindows\UsersWindowAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
