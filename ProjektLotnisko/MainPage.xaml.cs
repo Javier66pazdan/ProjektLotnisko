@@ -12,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ProjektLotnisko.AdminWindows;
+using ProjektLotnisko.UsersWindows;
+using ProjektLotnisko.DbClasses;
+using ProjektLotnisko.DAL;
+
 
 namespace ProjektLotnisko
 {
@@ -20,9 +24,11 @@ namespace ProjektLotnisko
     /// </summary>
     public partial class MainPage : Window
     {
+        User wybranyUser;
         public MainPage()
         {
             InitializeComponent();
+            nameLabel.Content = "Welcome back, " + MainWindow.email;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -36,5 +42,12 @@ namespace ProjektLotnisko
             UsersWindowAdmin usersWindowAdmin = new UsersWindowAdmin();
             usersWindowAdmin.ShowDialog();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            editData window = new editData();
+            window.ShowDialog();
+        }
+
     }
 }

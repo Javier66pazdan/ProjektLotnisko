@@ -21,10 +21,11 @@ namespace ProjektLotnisko
     /// Logika interakcji dla klasy MainWindow.xaml
     /// </summary>
     /// 
-    
+
     public partial class MainWindow : Window
     {
         AirportManagementContext db;
+        public static string email;
         public MainWindow()
         {
             InitializeComponent();
@@ -40,6 +41,7 @@ namespace ProjektLotnisko
             db.SaveChanges();
             db.Dispose();*/
 
+
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -49,10 +51,12 @@ namespace ProjektLotnisko
 
         private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
+          
             // string email = emailField.Text;
             //string password = passwordField.GetValue();
             if (db.Users.Any(o => o.Email == emailField.Text && o.Password == passwordField.Text))
             {
+                email = emailField.Text;
                 MainPage noweOkno = new MainPage();
                 this.Close();
                 noweOkno.ShowDialog();
