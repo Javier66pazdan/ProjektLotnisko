@@ -8,7 +8,7 @@
         Title="registerPage" Height="600" Width="575.354" Background="#FFF9F6F6" HorizontalAlignment="Center">
     <Grid>
         <Label x:Name="registerLabel" Content="Rejestracja" HorizontalAlignment="Center" Margin="0,26,0,0" VerticalAlignment="Top" Height="78" Width="189" FontSize="36"/>
-        <TextBox x:Name="nameField" HorizontalAlignment="Left" Height="63" Margin="36,117,0,0" TextWrapping="Wrap" Text="Imię" VerticalAlignment="Top" Width="240" FontSize="36"/>
+        <TextBox x:Name="nameField" HorizontalAlignment="Left" Height="63" Margin="36,117,0,0" TextWrapping="Wrap" Text="Imie" VerticalAlignment="Top" Width="240" FontSize="36"/>
         <TextBox x:Name="surnameField" HorizontalAlignment="Right" Height="63" Margin="0,117,26.8,0" TextWrapping="Wrap" Text="Nazwisko" VerticalAlignment="Top" Width="240" TextChanged="TextBox_TextChanged" FontSize="36"/>
         <TextBox x:Name="emailField" HorizontalAlignment="Left" Height="63" Margin="36,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="506" FontSize="36" Text="Email"/>
         <TextBox x:Name="passwordField1" HorizontalAlignment="Left" Height="63" Margin="36,287,0,0" TextWrapping="Wrap" Text="Haslo" VerticalAlignment="Top" Width="240" FontSize="36"/>
