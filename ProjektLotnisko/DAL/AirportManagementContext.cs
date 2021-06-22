@@ -12,7 +12,10 @@ namespace ProjektLotnisko.DAL
     public class AirportManagementContext : DbContext
     {
         public AirportManagementContext() : base("AirportManagementContext")
-        { }
+        {
+            //wylaczenie initializera
+            Database.SetInitializer<AirportManagementContext>(null);
+        }
 
         public DbSet<User> Users { get; set; }
         public DbSet<Ticket> Tickets { get; set; }

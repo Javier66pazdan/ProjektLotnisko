@@ -64,25 +64,46 @@ namespace ProjektLotnisko.AdminWindows
         private void buttonAddUser_Click(object sender, RoutedEventArgs e)
         {
             User newUser = createUserFromTextBox();
-            db.addUser(newUser);
-            listaUserow.Add(newUser);
-            refreshUsersListView();
+            if (db.isEmailAvailable(newUser.Email))
+            {
+                db.addUser(newUser);
+                listaUserow.Add(newUser);
+                refreshUsersListView();
+            }
+            else
+            {
+                MessageBox.Show("Email zajęty", "Błąd");
+            }
         }
 
         private void buttonEditUser_Click(object sender, RoutedEventArgs e)
         {
-            User editedUser = createUserFromTextBox();
-            editedUser.UserId = selectedUser.UserId;
-            db.editUser(editedUser);
-            listaUserow[UserListView.SelectedIndex] = editedUser;
-            refreshUsersListView();
+            if (UserListView.SelectedValue != null)
+            {
+                User editedUser = createUserFromTextBox();
+                editedUser.UserId = selectedUser.UserId;
+                db.editUser(editedUser);
+                listaUserow[UserListView.SelectedIndex] = editedUser;
+                refreshUsersListView();
+            }
+            else
+            {
+                MessageBox.Show("Wybierz pozycję do edycji", "Błąd");
+            }
         }
 
         private void buttonRemoveUser_Click(object sender, RoutedEventArgs e)
         {
-            db.removeUser(selectedUser);
-            listaUserow.Remove(selectedUser);
-            refreshUsersListView();
+            if (UserListView.SelectedValue != null)
+            {
+                db.removeUser(selectedUser);
+                listaUserow.Remove(selectedUser);
+                refreshUsersListView();
+            }
+            else
+            {
+                MessageBox.Show("Wybierz pozycję do usunięcia", "Błąd");
+            }
         }
     }
 }

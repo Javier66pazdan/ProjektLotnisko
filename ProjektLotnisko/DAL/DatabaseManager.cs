@@ -12,7 +12,6 @@ namespace ProjektLotnisko.DAL
     public class DatabaseManager
     {
         AirportManagementContext db;
-
         public DatabaseManager()
         {
             db = new AirportManagementContext();
@@ -37,5 +36,32 @@ namespace ProjektLotnisko.DAL
             db.Users.AddOrUpdate(user);
             db.SaveChanges();
         }
+        public bool isEmailAvailable (string email)
+        {
+            if (db.Users.Any(o => o.Email == email))
+                return false;
+            else return true;
+        }
+        public List<Airline> airlineList()
+        {
+            var airlines = (from p in db.Airlines select p).ToList();
+            return airlines;
+        }
+        public void addAirline(Airline airline)
+        {
+            db.Airlines.Add(airline);
+            db.SaveChanges();
+        }
+        public void removeAirline(Airline airline)
+        {
+            db.Airlines.Remove(airline);
+            db.SaveChanges();
+        }
+        public void editAirline (Airline airline)
+        {
+            db.Airlines.AddOrUpdate(airline);
+            db.SaveChanges();
+        }
+
     }
 }

@@ -24,7 +24,6 @@ namespace ProjektLotnisko
     /// </summary>
     public partial class MainPage : Window
     {
-        User wybranyUser;
         public MainPage()
         {
             InitializeComponent();
@@ -49,5 +48,10 @@ namespace ProjektLotnisko
             window.ShowDialog();
         }
 
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            AirlinesWindowAdmin airlinesWindowAdmin = new AirlinesWindowAdmin();
+            airlinesWindowAdmin.ShowDialog();
+        }
     }
 }

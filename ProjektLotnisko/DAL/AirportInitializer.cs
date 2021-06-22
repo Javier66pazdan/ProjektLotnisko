@@ -9,7 +9,7 @@ using System.Windows;
 
 namespace ProjektLotnisko.DAL
 {
-    public class AirportInitializer : CreateDatabaseIfNotExists<AirportManagementContext>
+    public class AirportInitializer : DropCreateDatabaseIfModelChanges<AirportManagementContext>
     {
         protected override void Seed(AirportManagementContext context)
         {

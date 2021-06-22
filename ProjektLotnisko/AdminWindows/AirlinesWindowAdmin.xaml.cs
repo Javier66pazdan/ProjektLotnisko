@@ -12,8 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using ProjektLotnisko.DAL;
 using ProjektLotnisko.DbClasses;
+using ProjektLotnisko.DAL;
 
 namespace ProjektLotnisko.AdminWindows
 {
@@ -27,25 +27,71 @@ namespace ProjektLotnisko.AdminWindows
         DatabaseManager db;
         public AirlinesWindowAdmin()
         {
-            db = new DatabaseManager();
-            listaUserow = new ObservableCollection<User>(db.usersList());
-            refreshUsersListView();
             InitializeComponent();
+            db = new DatabaseManager();
+            listAirlines = new ObservableCollection<Airline>(db.airlineList());
+            refreshAirlinesListView();
+        }
+        void refreshAirlinesListView()
+        {
+            AirlinesListView.ItemsSource = listAirlines;
+        }
+
+        Airline createAirlineFromTextBox()
+        {
+            Airline airline = new Airline()
+            {
+                Name = nameField.Text,
+                Code = codeField.Text,
+                YearFounded = Int32.Parse(yearFoundedField.Text),
+                CountryAirline = countryField.Text,
+                Description = descriptionField.Text
+            };
+            return airline;
         }
 
         private void buttonAddUser_Click(object sender, RoutedEventArgs e)
         {
-
+            Airline newAirline = createAirlineFromTextBox();
+            db.addAirline(newAirline);
+            listAirlines.Add(newAirline);
+            refreshAirlinesListView();
         }
 
         private void buttonRemoveUser_Click(object sender, RoutedEventArgs e)
         {
-
+            if (AirlinesListView.SelectedValue != null)
+            {
+                db.removeAirline(selectedAirline);
+                listAirlines.Remove(selectedAirline);
+                refreshAirlinesListView();
+            }
+            else
+            {
+                MessageBox.Show("Wybierz pozycję do usunięcia", "Błąd");
+            }
         }
 
         private void buttonEditUser_Click(object sender, RoutedEventArgs e)
         {
+            if (AirlinesListView.SelectedValue != null)
+            {
+                Airline editedAirline = createAirlineFromTextBox();
+                editedAirline.AirlineId = selectedAirline.AirlineId;
+                db.editAirline(editedAirline);
+                listAirlines[AirlinesListView.SelectedIndex] = editedAirline;
+                refreshAirlinesListView();
+            }
+            else
+            {
+                MessageBox.Show("Wybierz pozycję do edycji", "Błąd");
+            }
+}
 
+        private void UserListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedAirline = AirlinesListView.SelectedItem as Airline;
+            this.DataContext = selectedAirline;
         }
     }
 }

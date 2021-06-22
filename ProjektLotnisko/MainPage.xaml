@@ -10,7 +10,7 @@
         <Button Content="Panel lotów" HorizontalAlignment="Left" Margin="24,323,0,0" VerticalAlignment="Top" Width="250" Height="77" FontSize="36"/>
         <Button Content="Przeglądaj&#xA;loty" HorizontalAlignment="Left" Margin="415,74,0,0" VerticalAlignment="Top" Width="165" Height="93" FontSize="36"/>
         <Button Content="Panel lotnisk" HorizontalAlignment="Left" Margin="24,155,0,0" VerticalAlignment="Top" Width="250" Height="76" FontSize="36"/>
-        <Button Content="Pan. linii lotniczych" HorizontalAlignment="Left" Margin="24,242,0,0" VerticalAlignment="Top" Width="250" Height="76" FontSize="36"/>
+        <Button Content="Pan. linii lotniczych" HorizontalAlignment="Left" Margin="24,242,0,0" VerticalAlignment="Top" Width="250" Height="76" FontSize="36" Click="Button_Click_2"/>
         <Button Content="Moja rezerwacja&#xA;" HorizontalAlignment="Left" Margin="415,184,0,0" VerticalAlignment="Top" Width="353" Height="111" FontSize="36"/>
         <Button x:Name="editDataBtn" Content="Edytuj &#xD;&#xA;dane&#xA;" HorizontalAlignment="Left" Margin="603,74,0,0" VerticalAlignment="Top" Width="165" Height="93" FontSize="36" Click="Button_Click_1"/>
         <Button x:Name="UserPanelButton" Content="Pan. uzytkownikow" HorizontalAlignment="Left" Margin="24,74,0,0" VerticalAlignment="Top" Width="250" Height="76" FontSize="36" Click="UserPanelButton_Click"/>

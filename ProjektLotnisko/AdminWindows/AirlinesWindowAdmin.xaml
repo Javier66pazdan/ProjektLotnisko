@@ -7,23 +7,31 @@
         mc:Ignorable="d"
         Title="AirlinesWindowAdmin" Height="450" Width="800">
     <Grid>
-        <ListView HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="513">
+        <ListView x:Name="AirlinesListView" HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="461" SelectionChanged="UserListView_SelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding AirlineId}" />
+                    <GridViewColumn Header="Nazwa" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Kod" DisplayMemberBinding="{Binding Code}" />
+                    <GridViewColumn Header="Rok założenia" DisplayMemberBinding="{Binding YearFounded}" />
+                    <GridViewColumn Header="Kraj " DisplayMemberBinding="{Binding CountryAirline}" />
+                    <GridViewColumn Header="Notatki" DisplayMemberBinding="{Binding Description}" />
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBox x:Name="emailField" HorizontalAlignment="Left" Height="23" Margin="631,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Email, Mode=OneWay}"/>
-        <TextBox x:Name="passwordField" HorizontalAlignment="Left" Height="23" Margin="631,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Password, Mode=OneWay}"/>
-        <TextBox x:Name="firstNameField" HorizontalAlignment="Left" Height="23" Margin="631,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding FirstName, Mode=OneWay}"/>
-        <TextBox x:Name="lastNameField" HorizontalAlignment="Left" Height="23" Margin="631,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding LastName, Mode=OneWay}"/>
-        <TextBox x:Name="joinedField" HorizontalAlignment="Left" Height="23" Margin="631,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding SignUpDate, Mode=OneWay}"/>
-        <Label Content="Nazwa" HorizontalAlignment="Left" Margin="553,14,0,0" VerticalAlignment="Top"/>
-        <Label Content="Kod" HorizontalAlignment="Left" Margin="553,43,0,0" VerticalAlignment="Top"/>
-        <Label Content="Rok założenia" HorizontalAlignment="Left" Margin="553,71,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.664,1.931"/>
-        <Label Content="Kraj" HorizontalAlignment="Left" Margin="553,99,0,0" VerticalAlignment="Top"/>
-        <Label Content="Opis" HorizontalAlignment="Left" Margin="553,127,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="nameField" HorizontalAlignment="Left" Height="23" Margin="607,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Name, Mode=OneWay}"/>
+        <TextBox x:Name="codeField" HorizontalAlignment="Left" Height="23" Margin="607,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Code, Mode=OneWay}"/>
+        <TextBox x:Name="yearFoundedField" HorizontalAlignment="Left" Height="23" Margin="607,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding YearFounded, Mode=OneWay}"/>
+        <TextBox x:Name="countryField" HorizontalAlignment="Left" Height="23" Margin="607,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding CountryAirline, Mode=OneWay}"/>
+        <TextBox x:Name="descriptionField" HorizontalAlignment="Left" Height="119" Margin="607,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Description, Mode=OneWay}"/>
+        <Label Content="Nazwa" HorizontalAlignment="Left" Margin="529,20,0,0" VerticalAlignment="Top"/>
+        <Label Content="Kod" HorizontalAlignment="Left" Margin="529,49,0,0" VerticalAlignment="Top"/>
+        <Label Content="Rok założenia" HorizontalAlignment="Left" Margin="529,77,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.664,1.931"/>
+        <Label Content="Kraj" HorizontalAlignment="Left" Margin="529,105,0,0" VerticalAlignment="Top"/>
+        <Label Content="Notatki" HorizontalAlignment="Left" Margin="529,133,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="buttonAddUser" Content="Dodaj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="631,306,0,0" Click="buttonAddUser_Click"/>
+        <Button x:Name="buttonRemoveUser" Content="Usun" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="631,331,0,0" Click="buttonRemoveUser_Click"/>
+        <Button x:Name="buttonEditUser" Content="Zapisz" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="631,356,0,0" Click="buttonEditUser_Click"/>
 
     </Grid>
 </Window>
