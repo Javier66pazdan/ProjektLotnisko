@@ -17,39 +17,36 @@ using ProjektLotnisko.DbClasses;
 
 namespace ProjektLotnisko.AdminWindows
 {
-    /// <summary>
-    /// Interaction logic for UsersWindowAdmin.xaml
-    /// </summary>
+    /// metody do obslugi okna modyfikacji listy uzytkownikow
+    /// dodawanie, usuwanie, edycja uzytkownikow
+    /// 
     public partial class UsersWindowAdmin : Window
     {
-        User wybranyUser;
-        AirportManagementContext db;
+        User selectedUser;
         ObservableCollection<User> listaUserow;
+        DatabaseManager db;
         public UsersWindowAdmin()
         {
             InitializeComponent();
-            db = new AirportManagementContext();
-            var users = (from p in db.Users select p).ToList();
-            listaUserow = new ObservableCollection<User>(users);
+            db = new DatabaseManager();
+            listaUserow = new ObservableCollection<User>(db.usersList());
             refreshUsersListView();
         }
 
         void refreshUsersListView()
         {
             UserListView.ItemsSource = listaUserow;
-            wybranyUser = listaUserow[0];
-            this.DataContext = wybranyUser;
         }
 
         private void UserListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            wybranyUser = UserListView.SelectedItem as User;
-                this.DataContext = wybranyUser;
+            selectedUser = UserListView.SelectedItem as User;
+                this.DataContext = selectedUser;
         }
 
-        private void buttonAddUser_Click(object sender, RoutedEventArgs e)
+        User createUserFromTextBox()
         {
-            User nowy = new User()
+            User user = new User()
             {
                 Email = emailField.Text,
                 Password = passwordField.Text,
@@ -61,23 +58,30 @@ namespace ProjektLotnisko.AdminWindows
                 City = cityField.Text,
                 Country = countryField.Text
             };
-            db.Users.Add(nowy);
-            listaUserow.Add(nowy);
-            db.SaveChanges();
+            return user;
+        }
+
+        private void buttonAddUser_Click(object sender, RoutedEventArgs e)
+        {
+            User newUser = createUserFromTextBox();
+            db.addUser(newUser);
+            listaUserow.Add(newUser);
             refreshUsersListView();
         }
 
         private void buttonEditUser_Click(object sender, RoutedEventArgs e)
         {
-            db.SaveChanges();
+            User editedUser = createUserFromTextBox();
+            editedUser.UserId = selectedUser.UserId;
+            db.editUser(editedUser);
+            listaUserow[UserListView.SelectedIndex] = editedUser;
             refreshUsersListView();
         }
 
         private void buttonRemoveUser_Click(object sender, RoutedEventArgs e)
         {
-            db.Users.Remove(wybranyUser);
-            listaUserow.Remove(wybranyUser);
-            db.SaveChanges();
+            db.removeUser(selectedUser);
+            listaUserow.Remove(selectedUser);
             refreshUsersListView();
         }
     }
