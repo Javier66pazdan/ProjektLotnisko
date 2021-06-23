@@ -17,11 +17,35 @@ namespace ProjektLotnisko.DAL
             {
                 new User{Email="admin",Password="admin",FirstName="admin",LastName="admin",
                     SignUpDate=new DateTime(2000,5,1,8,30,52), AdressStreet="adminowa",AdressNumber="123"
+                    ,Country="Poland" },
+                new User{Email="tester",Password="admin",FirstName="marek",LastName="tester",
+                    SignUpDate=new DateTime(2003,5,1,8,30,52), AdressStreet="testowa",AdressNumber="42"
                     ,Country="Poland" }
             };
             users.ForEach(s => context.Users.Add(s));
-            context.SaveChanges();
             
+            var airports = new List<Airport>
+            {
+                new Airport{Name="Biała Podlaska",Code="EPBP",City="Biała Podlaska",
+                    Province="LB",CountryAirport="Poland"},
+                new Airport{Name="Elbląg",Code="EPEL",City="Elbląg",
+                    Province="WM",CountryAirport="Poland"},
+                new Airport{Name="Rzeszów-Jasionka",Code="EPRZ",City="Rzeszów",
+                    Province="PK",CountryAirport="Poland"}
+            };
+            airports.ForEach(s => context.Airports.Add(s));
+
+            var airlines = new List<Airline>
+            {
+                new Airline{Name="LOT Polish Airlines",Code="LOT",YearFounded=1929,
+                    CountryAirline="Poland"},
+                new Airline{Name="Buzz",Code="RYS",YearFounded=2018,
+                    CountryAirline="Poland",Description="previously Ryanair Sun"},
+                new Airline{Name="British Airways",Code="BAW/SHT",YearFounded=1974,
+                    CountryAirline="United Kingdom"},
+            };
+            airlines.ForEach(s => context.Airlines.Add(s));
+            context.SaveChanges();
         }
     }
 }
