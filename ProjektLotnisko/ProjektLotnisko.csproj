@@ -83,6 +83,8 @@
     <Compile Include="DAL\AirportManagementContext.cs" />
     <Compile Include="DAL\DatabaseManager.cs" />
     <Compile Include="DAL\Model1.cs" />
+    <Compile Include="DAL\PasswordHasher.cs" />
+    <Compile Include="DAL\Validation.cs" />
     <Compile Include="Model\Airline.cs" />
     <Compile Include="Model\Airport.cs" />
     <Compile Include="Model\Flight.cs" />

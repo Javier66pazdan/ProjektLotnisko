@@ -22,11 +22,15 @@ namespace ProjektLotnisko
     public partial class registerPage : Window
     {
 
-        AirportManagementContext db;
+        //AirportManagementContext db;
+        DatabaseManager db;
+        DAL.Validation walidacja;
         public registerPage()
         {
             InitializeComponent();
-            db = new AirportManagementContext();
+            walidacja = new DAL.Validation();
+            db = new DatabaseManager();
+            //db = new AirportManagementContext();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -38,10 +42,10 @@ namespace ProjektLotnisko
         {
             MainWindow loginWind = new MainWindow();
             this.Close();
-            loginWind.ShowDialog();
+            loginWind.Show();
         }
 
-        protected void register()
+        /*protected void register()
         {
             User nowy = new User()
             {
@@ -59,10 +63,10 @@ namespace ProjektLotnisko
             db.SaveChanges();
             MessageBox.Show("Pomyślnie utworzono konto");
         }
-
+        */
         private void registerBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (nameField.Text == "" || surnameField.Text == "" || emailField.Text == "" ||
+            /*if (nameField.Text == "" || surnameField.Text == "" || emailField.Text == "" ||
                 passwordField.Text == "" || passwordField1.Text == "" || adressStreetField.Text == "" ||
                 adressNumberField.Text == "")
             {
@@ -79,9 +83,38 @@ namespace ProjektLotnisko
                 MessageBox.Show("Podaj takie same hasła");
             }
             else
+            {*/
+            //registerPage objekt2 = new registerPage();
+            //objekt2.register();
+            //}
+            User nowy = new User()
             {
-                registerPage objekt2 = new registerPage();
-                objekt2.register();
+                Email = emailField.Text,
+                Password = passwordField1.Text,
+                FirstName = nameField.Text,
+                LastName = surnameField.Text,
+                SignUpDate = DateTime.Now,
+                AdressStreet = adressStreetField.Text,
+                AdressNumber = adressNumberField.Text,
+                City = cityField.Text,
+                Country = countryField.Text
+            };
+            if (passwordField.Text != passwordField1.Text)
+            {
+                MessageBox.Show("Podaj takie same hasła");
+            }
+            else if (!walidacja.IsEmailValid(emailField.Text))
+            {
+                MessageBox.Show("Niepoprawny adres email", "Błąd");
+            }
+            else if (walidacja.isUserValid(nowy))
+            {
+                MessageBox.Show("Wypełnij wszystkie pola", "Błąd");
+            }
+            else
+            {
+                nowy.Password = PasswordHasher.Hash(passwordField.Text);
+                db.addUser(nowy);
                 MainWindow logowanie = new MainWindow();
                 this.Close();
                 logowanie.Show();

@@ -12,7 +12,6 @@
                 <GridView>
                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Path=UserId}" />
                     <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Path=Email}" />
-                    <GridViewColumn Header="Password" DisplayMemberBinding="{Binding Path=Password}" />
                     <GridViewColumn Header="Imię" DisplayMemberBinding="{Binding Path=FirstName}" />
                     <GridViewColumn Header="Nazwisko" DisplayMemberBinding="{Binding Path=LastName}" />
                     <GridViewColumn Header="Dołączył" DisplayMemberBinding="{Binding Path=SignUpDate}" />
