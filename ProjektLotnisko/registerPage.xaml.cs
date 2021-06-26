@@ -111,10 +111,15 @@ namespace ProjektLotnisko
             {
                 MessageBox.Show("Wypełnij wszystkie pola", "Błąd");
             }
+            else if(db.isEmailAvailable(emailField.Text))
+            {
+                MessageBox.Show("Email jest zajęty", "Błąd");
+            }
             else
             {
                 nowy.Password = PasswordHasher.Hash(passwordField.Text);
                 db.addUser(nowy);
+                MessageBox.Show("Konto utworzono", "Sukces");
                 MainWindow logowanie = new MainWindow();
                 this.Close();
                 logowanie.Show();

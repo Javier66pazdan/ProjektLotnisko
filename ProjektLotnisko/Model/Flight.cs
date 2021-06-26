@@ -14,7 +14,7 @@ namespace ProjektLotnisko.DbClasses
         public Airport AirportToLocation { get; set; }
         public DateTime TimeDeparture  { get; set; }
         public DateTime TimeArrival { get; set; }
-        public int TimeFlight { get; set; }
+        public string FlightCode { get; set; }
         public int SeatsNumber { get; set; }
     }
 }

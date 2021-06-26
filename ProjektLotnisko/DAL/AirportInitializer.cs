@@ -17,10 +17,10 @@ namespace ProjektLotnisko.DAL
             {
                 new User{Email="admin",Password="admin",FirstName="admin",LastName="admin",
                     SignUpDate=new DateTime(2000,5,1,8,30,52), AdressStreet="adminowa",AdressNumber="123"
-                    ,Country="Poland" },
+                    ,Country="Poland",City="Adminowo" },
                 new User{Email="tester",Password="admin",FirstName="marek",LastName="tester",
                     SignUpDate=new DateTime(2003,5,1,8,30,52), AdressStreet="testowa",AdressNumber="42"
-                    ,Country="Poland" }
+                    ,Country="Poland",City="Rzeszów" }
             };
             users.ForEach(s => context.Users.Add(s));
             

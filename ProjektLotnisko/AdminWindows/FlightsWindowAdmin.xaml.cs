@@ -22,15 +22,22 @@ namespace ProjektLotnisko.AdminWindows
     /// </summary>
     public partial class FlightsWindowAdmin : Window
     {
-        AirportManagementContext db;
-        ObservableCollection<Flight> listaLotow;
+        Flight selectedFlight;
+        ObservableCollection<Flight> listFlights;
+        ObservableCollection<Airline> listAirline;
+        DatabaseManager db;
         public FlightsWindowAdmin()
         {
             InitializeComponent();
-            db = new AirportManagementContext();
-            var flights = (from p in db.Flights select p).ToList();
-            listaLotow = new ObservableCollection<Flight>(flights);
-            FlightListWindow.ItemsSource = listaLotow;
+            db = new DatabaseManager();
+            listFlights = new ObservableCollection<Flight>(db.flightsList());
+            listAirline = new ObservableCollection<Airline>(db.airlineList());
+            refreshUsersListView();
         }
+        void refreshUsersListView()
+        {
+            FlightListWindow.ItemsSource = listFlights;
+        }
+
     }
 }

@@ -62,6 +62,25 @@ namespace ProjektLotnisko.DAL
             db.Airlines.AddOrUpdate(airline);
             db.SaveChanges();
         }
-
+        public List<Flight> flightsList()
+        {
+            var flights = (from p in db.Flights select p).ToList();
+            return flights;
+        }
+        public void addFlight(Flight flight)
+        {
+            db.Flights.Add(flight);
+            db.SaveChanges();
+        }
+        public void removeFlight(Flight flight)
+        {
+            db.Flights.Remove(flight);
+            db.SaveChanges();
+        }
+        public void editFlight(Flight flight)
+        {
+            db.Flights.AddOrUpdate(flight);
+            db.SaveChanges();
+        }
     }
 }
