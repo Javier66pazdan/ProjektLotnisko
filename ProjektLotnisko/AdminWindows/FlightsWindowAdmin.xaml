@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="FlightsWindowAdmin" Height="450" Width="910.85">
     <Grid>
-        <ListView x:Name="FlightListWindow" HorizontalAlignment="Left" Height="313" Margin="10,10,0,0" VerticalAlignment="Top" Width="524">
+        <ListView x:Name="FlightListView" HorizontalAlignment="Left" Height="313" Margin="10,10,0,0" VerticalAlignment="Top" Width="524" SelectionChanged="FlightListWindow_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Path=UserId}" />

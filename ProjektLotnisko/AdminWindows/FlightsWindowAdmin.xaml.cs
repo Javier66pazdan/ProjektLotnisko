@@ -32,12 +32,60 @@ namespace ProjektLotnisko.AdminWindows
             db = new DatabaseManager();
             listFlights = new ObservableCollection<Flight>(db.flightsList());
             listAirline = new ObservableCollection<Airline>(db.airlineList());
-            refreshUsersListView();
+            refreshFlightsListView();
         }
-        void refreshUsersListView()
+        void refreshFlightsListView()
         {
-            FlightListWindow.ItemsSource = listFlights;
+            FlightListView.ItemsSource = listFlights;
+            airlineField.ItemsSource = listAirline;
         }
 
+        Flight createFlightFromTextBox()
+        {
+            Flight flight = new Flight()
+            {
+                AirportFromLocation = (Airport)fromField.SelectedItem,
+                AirportToLocation = (Airport)toField.SelectedItem,
+                Airline = (Airline)airlineField.SelectedItem,
+                TimeArrival = DateTime.Now,
+                TimeDeparture = DateTime.Now,
+                FlightCode = flightCodeField.Text,
+                SeatsNumber = Int32.Parse(seatsNumberField.Text)
+            };
+            return flight;
+        }
+
+        private void buttonAddUser_Click(object sender, RoutedEventArgs e)
+        {
+            Flight newFlight = createFlightFromTextBox();
+            db.addFlight(newFlight);
+            listFlights.Add(newFlight);
+            refreshFlightsListView();
+        }
+
+        private void buttonRemoveUser_Click(object sender, RoutedEventArgs e)
+        {
+            if (FlightListView.SelectedValue != null)
+            {
+                db.removeFlight(selectedFlight);
+                listFlights.Remove(selectedFlight);
+                refreshFlightsListView();
+            }
+            else
+            {
+                MessageBox.Show("Wybierz pozycję do usunięcia", "Błąd");
+            }
+        }
+
+        private void buttonEditUser_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void FlightListWindow_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedFlight = FlightListView.SelectedItem as Flight;
+                this.DataContext = selectedFlight;
+        }
     }
 }
