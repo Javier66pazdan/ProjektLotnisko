@@ -59,5 +59,11 @@ namespace ProjektLotnisko
             FlightsWindowAdmin flightsWindowAdmin = new FlightsWindowAdmin();
             flightsWindowAdmin.ShowDialog();
         }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            AirportWindowAdmin airportWindowAdmin = new AirportWindowAdmin();
+            airportWindowAdmin.ShowDialog();
+        }
     }
 }
