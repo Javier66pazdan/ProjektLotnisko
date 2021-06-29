@@ -125,5 +125,113 @@ namespace ProjektLotnisko
                 logowanie.Show();
             }
         }
+
+        private void nameField_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (nameField.Text == "Imie")
+                nameField.Clear();
+        }
+
+        private void nameField_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (nameField.Text == "")
+                nameField.Text = "Imie";
+        }
+
+        private void surnameField_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (surnameField.Text == "")
+                surnameField.Text = "Nazwisko";
+        }
+
+        private void surnameField_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (surnameField.Text == "Nazwisko")
+                surnameField.Clear();
+        }
+
+        private void emailField_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (emailField.Text == "Email")
+                emailField.Clear();
+        }
+
+        private void emailField_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (emailField.Text == "")
+                emailField.Text = "Email";
+        }
+
+        private void passwordField1_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (passwordField1.Text == "")
+                passwordField1.Text = "Haslo";
+        }
+
+        private void passwordField1_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (passwordField1.Text == "Haslo")
+                passwordField1.Clear();
+        }
+
+        private void passwordField_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (passwordField.Text == "Powtorz haslo")
+                passwordField.Clear();
+        }
+
+        private void passwordField_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (passwordField.Text == "")
+                passwordField.Text = "Powtorz haslo";
+        }
+
+        private void adressStreetField_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (adressStreetField.Text == "")
+                adressStreetField.Text = "Ulica";
+        }
+
+        private void adressStreetField_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (adressStreetField.Text == "Ulica")
+                adressStreetField.Clear();
+        }
+
+        private void adressNumberField_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (adressNumberField.Text == "numer domu")
+                adressNumberField.Clear();
+        }
+
+        private void adressNumberField_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (adressNumberField.Text == "")
+                adressNumberField.Text = "numer domu";
+        }
+
+        private void cityField_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (cityField.Text == "")
+                cityField.Text = "Miasto";
+        }
+
+        private void cityField_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (cityField.Text == "Miasto")
+                cityField.Clear();
+        }
+
+        private void countryField_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (countryField.Text == "Kraj")
+                countryField.Clear();
+        }
+
+        private void countryField_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (countryField.Text == "")
+                countryField.Text = "Kraj";
+        }
     }
 }
