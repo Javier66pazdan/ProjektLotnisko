@@ -76,6 +76,9 @@
     <Compile Include="AdminWindows\FlightsWindowAdmin.xaml.cs">
       <DependentUpon>FlightsWindowAdmin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AdminWindows\TicketWindowAdmin.xaml.cs">
+      <DependentUpon>TicketWindowAdmin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdminWindows\UsersWindowAdmin.xaml.cs">
       <DependentUpon>UsersWindowAdmin.xaml</DependentUpon>
     </Compile>
@@ -105,6 +108,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AdminWindows\FlightsWindowAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminWindows\TicketWindowAdmin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

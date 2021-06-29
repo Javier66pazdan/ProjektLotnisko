@@ -26,7 +26,6 @@ namespace ProjektLotnisko.AdminWindows
         ObservableCollection<Flight> listFlights;
         ObservableCollection<Airline> listAirline;
         ObservableCollection<Airport> listAirports;
-        public List<Airport> airport { get; set; }
         DatabaseManager db;
         public FlightsWindowAdmin()
         {
@@ -51,7 +50,8 @@ namespace ProjektLotnisko.AdminWindows
                 TimeArrival = DateTime.Now,
                 TimeDeparture = DateTime.Now,
                 FlightCode = flightCodeField.Text,
-                SeatsNumber = Int32.Parse(seatsNumberField.Text)
+                SeatsNumber = Int32.Parse(seatsNumberField.Text),
+                TicketPrice = Int32.Parse(ticketPriceField.Text)
             };
             return flight;
         }

@@ -65,5 +65,11 @@ namespace ProjektLotnisko
             AirportWindowAdmin airportWindowAdmin = new AirportWindowAdmin();
             airportWindowAdmin.ShowDialog();
         }
+
+        private void btTicketsAdmin_Click(object sender, RoutedEventArgs e)
+        {
+            TicketWindowAdmin ticketWindowAdmin = new TicketWindowAdmin();
+            ticketWindowAdmin.ShowDialog();
+        }
     }
 }

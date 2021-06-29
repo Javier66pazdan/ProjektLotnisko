@@ -102,5 +102,25 @@ namespace ProjektLotnisko.DAL
             db.Airports.AddOrUpdate(airport);
             db.SaveChanges();
         }
+        public List<Ticket> ticketList()
+        {
+            var tickets = (from p in db.Tickets select p).ToList();
+            return tickets;
+        }
+        public void addTicket(Ticket ticket)
+        {
+            db.Tickets.Add(ticket);
+            db.SaveChanges();
+        }
+        public void removeTicket(Ticket ticket)
+        {
+            db.Tickets.Remove(ticket);
+            db.SaveChanges();
+        }
+        public void editTicket(Ticket ticket)
+        {
+            db.Tickets.AddOrUpdate(ticket);
+            db.SaveChanges();
+        }
     }
 }

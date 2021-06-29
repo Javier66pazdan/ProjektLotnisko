@@ -16,5 +16,6 @@ namespace ProjektLotnisko.DbClasses
         public DateTime TimeArrival { get; set; }
         public string FlightCode { get; set; }
         public int SeatsNumber { get; set; }
+        public int TicketPrice { get; set; }
     }
 }
