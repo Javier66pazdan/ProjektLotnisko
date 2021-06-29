@@ -32,7 +32,9 @@ namespace ProjektLotnisko.AdminWindows
             db = new DatabaseManager();
             listFlights = new ObservableCollection<Flight>(db.flightsList());
             listAirline = new ObservableCollection<Airline>(db.airlineList());
+            fromComboBind();
             refreshFlightsListView();
+
         }
         void refreshFlightsListView()
         {
@@ -86,6 +88,32 @@ namespace ProjektLotnisko.AdminWindows
         {
             selectedFlight = FlightListView.SelectedItem as Flight;
                 this.DataContext = selectedFlight;
+        }
+
+        public List<Airport> airport { get; set; }
+
+        private void fromComboBind()
+        {
+            var item = db.airportList();
+            airport = item;
+            DataContext = airport;
+        }
+
+        private void fromField_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var item = fromField.SelectedItem as Airport;
+            //MessageBox.Show(item.City.ToString());
+        }
+
+        private void toField_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var item = toField.SelectedItem as Airport;
+            //MessageBox.Show(item.City.ToString());
+        }
+
+        private void airlineField_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+         var item = airlineField.SelectedItem as Airline;
         }
     }
 }
