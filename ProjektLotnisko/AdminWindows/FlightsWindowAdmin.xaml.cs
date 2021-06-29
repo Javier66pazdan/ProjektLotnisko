@@ -25,6 +25,8 @@ namespace ProjektLotnisko.AdminWindows
         Flight selectedFlight;
         ObservableCollection<Flight> listFlights;
         ObservableCollection<Airline> listAirline;
+        ObservableCollection<Airport> listAirports;
+        public List<Airport> airport { get; set; }
         DatabaseManager db;
         public FlightsWindowAdmin()
         {
@@ -32,14 +34,11 @@ namespace ProjektLotnisko.AdminWindows
             db = new DatabaseManager();
             listFlights = new ObservableCollection<Flight>(db.flightsList());
             listAirline = new ObservableCollection<Airline>(db.airlineList());
-            fromComboBind();
-            refreshFlightsListView();
-
-        }
-        void refreshFlightsListView()
-        {
+            listAirports = new ObservableCollection<Airport>(db.airportList());
             FlightListView.ItemsSource = listFlights;
             airlineField.ItemsSource = listAirline;
+            toField.ItemsSource = listAirports;
+            fromField.ItemsSource = listAirports;
         }
 
         Flight createFlightFromTextBox()
@@ -62,7 +61,6 @@ namespace ProjektLotnisko.AdminWindows
             Flight newFlight = createFlightFromTextBox();
             db.addFlight(newFlight);
             listFlights.Add(newFlight);
-            refreshFlightsListView();
         }
 
         private void buttonRemoveUser_Click(object sender, RoutedEventArgs e)
@@ -71,7 +69,6 @@ namespace ProjektLotnisko.AdminWindows
             {
                 db.removeFlight(selectedFlight);
                 listFlights.Remove(selectedFlight);
-                refreshFlightsListView();
             }
             else
             {
@@ -81,34 +78,33 @@ namespace ProjektLotnisko.AdminWindows
 
         private void buttonEditUser_Click(object sender, RoutedEventArgs e)
         {
-
+            if (FlightListView.SelectedValue != null)
+            {
+                Flight editedFlight = createFlightFromTextBox();
+                editedFlight.flightId = selectedFlight.flightId;
+                db.editFlight(editedFlight);
+                listFlights[FlightListView.SelectedIndex] = editedFlight;
+            }
+            else
+            {
+                MessageBox.Show("Wybierz pozycję do edycji", "Błąd");
+            }
         }
 
         private void FlightListWindow_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             selectedFlight = FlightListView.SelectedItem as Flight;
-                this.DataContext = selectedFlight;
-        }
-
-        public List<Airport> airport { get; set; }
-
-        private void fromComboBind()
-        {
-            var item = db.airportList();
-            airport = item;
-            DataContext = airport;
+            this.DataContext = selectedFlight;
         }
 
         private void fromField_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var item = fromField.SelectedItem as Airport;
-            //MessageBox.Show(item.City.ToString());
         }
 
         private void toField_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var item = toField.SelectedItem as Airport;
-            //MessageBox.Show(item.City.ToString());
         }
 
         private void airlineField_SelectionChanged(object sender, SelectionChangedEventArgs e)

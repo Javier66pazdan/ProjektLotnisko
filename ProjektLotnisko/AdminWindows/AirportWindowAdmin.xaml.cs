@@ -28,13 +28,8 @@ namespace ProjektLotnisko.AdminWindows
         public AirportWindowAdmin()
         {
             InitializeComponent();
-            InitializeComponent();
             db = new DatabaseManager();
             listAirports = new ObservableCollection<Airport>(db.airportList());
-            refreshAiportListView();
-        }
-        void refreshAiportListView()
-        {
             ListViewAirport.ItemsSource = listAirports;
         }
 
@@ -56,12 +51,19 @@ namespace ProjektLotnisko.AdminWindows
             Airport newAirport = createAirportFromTextBox();
             db.addAirport(newAirport);
             listAirports.Add(newAirport);
-            refreshAiportListView();
         }
 
         private void buttonRemoveUser_Click(object sender, RoutedEventArgs e)
         {
-
+            if (ListViewAirport.SelectedValue != null)
+            {
+                db.removeAirport(selectedAirport);
+                listAirports.Remove(selectedAirport);
+            }
+            else
+            {
+                MessageBox.Show("Wybierz pozycję do usunięcia", "Błąd");
+            }
         }
 
         private void buttonEditUser_Click(object sender, RoutedEventArgs e)
@@ -72,7 +74,6 @@ namespace ProjektLotnisko.AdminWindows
                 editAirport.AirportId = selectedAirport.AirportId;
                 db.editAirport(editAirport);
                 listAirports[ListViewAirport.SelectedIndex] = editAirport;
-                refreshAiportListView();
             }
             else
             {

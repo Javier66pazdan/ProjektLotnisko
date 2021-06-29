@@ -111,7 +111,7 @@ namespace ProjektLotnisko
             {
                 MessageBox.Show("Wypełnij wszystkie pola", "Błąd");
             }
-            else if(db.isEmailAvailable(emailField.Text))
+            else if(!db.isEmailAvailable(emailField.Text))
             {
                 MessageBox.Show("Email jest zajęty", "Błąd");
             }

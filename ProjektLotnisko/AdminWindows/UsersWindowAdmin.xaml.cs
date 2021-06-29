@@ -30,11 +30,6 @@ namespace ProjektLotnisko.AdminWindows
             InitializeComponent();
             db = new DatabaseManager();
             listaUserow = new ObservableCollection<User>(db.usersList());
-            refreshUsersListView();
-        }
-
-        void refreshUsersListView()
-        {
             UserListView.ItemsSource = listaUserow;
         }
 
@@ -68,7 +63,6 @@ namespace ProjektLotnisko.AdminWindows
             {
                 db.addUser(newUser);
                 listaUserow.Add(newUser);
-                refreshUsersListView();
             }
             else
             {
@@ -84,7 +78,6 @@ namespace ProjektLotnisko.AdminWindows
                 editedUser.UserId = selectedUser.UserId;
                 db.editUser(editedUser);
                 listaUserow[UserListView.SelectedIndex] = editedUser;
-                refreshUsersListView();
             }
             else
             {
@@ -98,7 +91,6 @@ namespace ProjektLotnisko.AdminWindows
             {
                 db.removeUser(selectedUser);
                 listaUserow.Remove(selectedUser);
-                refreshUsersListView();
             }
             else
             {

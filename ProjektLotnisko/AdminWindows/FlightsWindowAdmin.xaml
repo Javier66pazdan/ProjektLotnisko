@@ -11,20 +11,20 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Path=flightId}" />
-                    <GridViewColumn Header="Skąd" DisplayMemberBinding="{Binding Path=AirportFromLocation}" />
-                    <GridViewColumn Header="Do" DisplayMemberBinding="{Binding Path=AirportToLocation}" />
+                    <GridViewColumn Header="Skąd" DisplayMemberBinding="{Binding Path=AirportFromLocation.Name}" />
+                    <GridViewColumn Header="Do" DisplayMemberBinding="{Binding Path=AirportToLocation.Name}" />
                     <GridViewColumn Header="Czas wylotu" DisplayMemberBinding="{Binding Path=TimeDeparture}" />
                     <GridViewColumn Header="Czas przylotu" DisplayMemberBinding="{Binding Path=TimeArrival}" />
-                    <GridViewColumn Header="Linia lotnicza" DisplayMemberBinding="{Binding Path=Airline}" />
+                    <GridViewColumn Header="Linia lotnicza" DisplayMemberBinding="{Binding Path=Airline.Name}" />
                     <GridViewColumn Header="Kod lotu" DisplayMemberBinding="{Binding Path=FlightCode}" />
                     <GridViewColumn Header="Liczba pasażerów" DisplayMemberBinding="{Binding Path=SeatsNumber}" />
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBox x:Name="timeDepartureField" HorizontalAlignment="Left" Height="23" Margin="662,67,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="timeArrivalField" HorizontalAlignment="Left" Height="23" Margin="662,95,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="flightCodeField" HorizontalAlignment="Left" Height="23" Margin="662,152,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="seatsNumberField" HorizontalAlignment="Left" Height="23" Margin="662,180,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="timeDepartureField" HorizontalAlignment="Left" Height="23" Margin="662,67,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Text="{Binding TimeDeparture, Mode=OneWay}" />
+        <TextBox x:Name="timeArrivalField" HorizontalAlignment="Left" Height="23" Margin="662,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding TimeArrival, Mode=OneWay}"/>
+        <TextBox x:Name="flightCodeField" HorizontalAlignment="Left" Height="23" Margin="662,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding FlightCode, Mode=OneWay}"/>
+        <TextBox x:Name="seatsNumberField" HorizontalAlignment="Left" Height="23" Margin="662,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding SeatsNumber, Mode=OneWay}"/>
         <Label Content="Skąd:" HorizontalAlignment="Left" Margin="586,7,0,0" VerticalAlignment="Top"/>
         <Label Content="Do" HorizontalAlignment="Left" Margin="586,36,0,0" VerticalAlignment="Top"/>
         <Label Content="Czas wylotu:" HorizontalAlignment="Left" Margin="586,64,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.664,1.931"/>
@@ -35,9 +35,9 @@
         <Button x:Name="buttonAddUser" Content="Dodaj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="662,229,0,0" Click="buttonAddUser_Click"/>
         <Button x:Name="buttonRemoveUser" Content="Usun" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="662,254,0,0" Click="buttonRemoveUser_Click"/>
         <Button x:Name="buttonEditUser" Content="Zapisz" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="662,279,0,0" Click="buttonEditUser_Click"/>
-        <ComboBox x:Name="fromField" ItemsSource="{Binding}" SelectedValuePath="AirportId" DisplayMemberPath="City" SelectionChanged="fromField_SelectionChanged"  HorizontalAlignment="Left" Margin="662,11,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="toField" ItemsSource="{Binding}" SelectedValuePath="AirportId" DisplayMemberPath="City" SelectionChanged="toField_SelectionChanged" HorizontalAlignment="Left" Margin="662,37,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="airlineField" ItemsSource="{Binding}" SelectedValuePath="AirlineId" DisplayMemberPath="Name" SelectionChanged="airlineField_SelectionChanged" HorizontalAlignment="Left" Margin="662,124,0,0" VerticalAlignment="Top" Width="120" IsEditable="True"/>
+        <ComboBox x:Name="fromField" ItemsSource="{Binding}" SelectedValuePath="AirportId" DisplayMemberPath="City" SelectionChanged="fromField_SelectionChanged"  HorizontalAlignment="Left" Margin="662,11,0,0" VerticalAlignment="Top" Width="120" IsEditable="True" IsReadOnly="True" Text="{Binding AirportFromLocation.Name, Mode=OneWay}"/>
+        <ComboBox x:Name="toField" ItemsSource="{Binding}" SelectedValuePath="AirportId" DisplayMemberPath="City" SelectionChanged="toField_SelectionChanged" HorizontalAlignment="Left" Margin="662,37,0,0" VerticalAlignment="Top" Width="120" IsEditable="True" IsReadOnly="True" Text="{Binding AirportToLocation.Name, Mode=OneWay}"/>
+        <ComboBox x:Name="airlineField" ItemsSource="{Binding}" SelectedValuePath="AirlineId" DisplayMemberPath="Name" SelectionChanged="airlineField_SelectionChanged" HorizontalAlignment="Left" Margin="662,124,0,0" VerticalAlignment="Top" Width="120" IsEditable="True" IsReadOnly="True" Text="{Binding Airline.Name, Mode=OneWay}"/>
 
     </Grid>
 </Window>

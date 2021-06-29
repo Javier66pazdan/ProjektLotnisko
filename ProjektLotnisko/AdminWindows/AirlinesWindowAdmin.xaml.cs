@@ -30,10 +30,6 @@ namespace ProjektLotnisko.AdminWindows
             InitializeComponent();
             db = new DatabaseManager();
             listAirlines = new ObservableCollection<Airline>(db.airlineList());
-            refreshAirlinesListView();
-        }
-        void refreshAirlinesListView()
-        {
             AirlinesListView.ItemsSource = listAirlines;
         }
 
@@ -55,7 +51,6 @@ namespace ProjektLotnisko.AdminWindows
             Airline newAirline = createAirlineFromTextBox();
             db.addAirline(newAirline);
             listAirlines.Add(newAirline);
-            refreshAirlinesListView();
         }
 
         private void buttonRemoveUser_Click(object sender, RoutedEventArgs e)
@@ -64,7 +59,6 @@ namespace ProjektLotnisko.AdminWindows
             {
                 db.removeAirline(selectedAirline);
                 listAirlines.Remove(selectedAirline);
-                refreshAirlinesListView();
             }
             else
             {
@@ -80,7 +74,6 @@ namespace ProjektLotnisko.AdminWindows
                 editedAirline.AirlineId = selectedAirline.AirlineId;
                 db.editAirline(editedAirline);
                 listAirlines[AirlinesListView.SelectedIndex] = editedAirline;
-                refreshAirlinesListView();
             }
             else
             {
