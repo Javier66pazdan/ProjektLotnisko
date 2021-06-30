@@ -26,49 +26,42 @@ namespace ProjektLotnisko
     {
         AirportManagementContext db;
         public static string email;
+        public static string accountType;
         public MainWindow()
         {
             InitializeComponent();
             db = new AirportManagementContext();
-            /*var users = new List<User>
-            {
-                new User{Email="admin",Password="admin",FirstName="admin",LastName="admin",
-                    SignUpDate=new DateTime(2000,5,1,8,30,52), AdressStreet="adminowa",AdressNumber="123"
-                    ,Country="Poland" }
-            };
-            users.ForEach(s => db.Users.Add(s));
-            MessageBox.Show("ZAPISANO");
-            db.SaveChanges();
-            db.Dispose();*/
-
-
         }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            
-        }
-
         private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
-          
-            // string email = emailField.Text;
-            //string password = passwordField.GetValue();
-            if (db.Users.Any(o => o.Email == emailField.Text))
+            //OMIJANIE HACKOWANIE LOGOWANIE
+            if (emailField.Text == "admin")
             {
-                //&& o.Password == passwordField.Text
-                //PasswordHasher.Verify(passwordField.Text, o.Password))
-                email = emailField.Text;
+                accountType = "admin";
                 MainPage noweOkno = new MainPage();
                 this.Close();
                 noweOkno.ShowDialog();
             }
             else
             {
-                MessageBox.Show("ZLE DANE");
-            }
 
-            
+
+                User emailUser = db.Users.First(o => o.Email == emailField.Text);
+                if (db.Users.Any(o => o.Email == emailField.Text) 
+                    && PasswordHasher.Verify(passwordBoxLogin.Password, emailUser.Password))
+                {
+                    accountType = emailUser.AccountType;
+                    email = emailField.Text;
+                    MainPage noweOkno = new MainPage();
+                    this.Close();
+                    noweOkno.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("ZLE DANE");
+                }
+
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

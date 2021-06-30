@@ -51,7 +51,8 @@ namespace ProjektLotnisko.AdminWindows
                 AdressStreet = streetField.Text,
                 AdressNumber = numberField.Text,
                 City = cityField.Text,
-                Country = countryField.Text
+                Country = countryField.Text,
+                AccountType = accountTypeField.Text
             };
             return user;
         }

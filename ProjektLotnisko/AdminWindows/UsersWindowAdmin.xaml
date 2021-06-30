@@ -19,6 +19,7 @@
                     <GridViewColumn Header="Nr" DisplayMemberBinding="{Binding Path=AdressNumber}" />
                     <GridViewColumn Header="Miasto" DisplayMemberBinding="{Binding Path=City}" />
                     <GridViewColumn Header="Kraj" DisplayMemberBinding="{Binding Path=Country}" />
+                    <GridViewColumn Header="Typ" DisplayMemberBinding="{Binding Path=AccountType}" />
                 </GridView>
             </ListView.View>
         </ListView>
@@ -40,9 +41,11 @@
         <Label Content="Nr" HorizontalAlignment="Left" Margin="739,186,0,0" VerticalAlignment="Top"/>
         <Label Content="Miasto" HorizontalAlignment="Left" Margin="739,214,0,0" VerticalAlignment="Top"/>
         <Label Content="Kraj" HorizontalAlignment="Left" Margin="739,242,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="buttonAddUser" Content="Dodaj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="850,290,0,0" Click="buttonAddUser_Click"/>
-        <Button x:Name="buttonRemoveUser" Content="Usun" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="850,315,0,0" Click="buttonRemoveUser_Click"/>
-        <Button x:Name="buttonEditUser" Content="Zapisz" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="850,340,0,0" Click="buttonEditUser_Click"/>
+        <Button x:Name="buttonAddUser" Content="Dodaj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="844,317,0,0" Click="buttonAddUser_Click"/>
+        <Button x:Name="buttonRemoveUser" Content="Usun" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="844,342,0,0" Click="buttonRemoveUser_Click"/>
+        <Button x:Name="buttonEditUser" Content="Zapisz" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="844,367,0,0" Click="buttonEditUser_Click"/>
+        <TextBox x:Name="accountTypeField" HorizontalAlignment="Left" Height="23" Margin="817,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Country, Mode=OneWay}"/>
+        <Label Content="Typ Konta:" HorizontalAlignment="Left" Margin="739,268,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

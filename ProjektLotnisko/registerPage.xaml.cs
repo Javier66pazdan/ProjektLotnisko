@@ -97,7 +97,8 @@ namespace ProjektLotnisko
                 AdressStreet = adressStreetField.Text,
                 AdressNumber = adressNumberField.Text,
                 City = cityField.Text,
-                Country = countryField.Text
+                Country = countryField.Text,
+                AccountType = "normal",
             };
             if (passwordField.Text != passwordField1.Text)
             {

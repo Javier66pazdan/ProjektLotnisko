@@ -28,6 +28,14 @@ namespace ProjektLotnisko
         {
             InitializeComponent();
             nameLabel.Content = "Welcome back, " + MainWindow.email;
+            if (MainWindow.accountType!="admin")
+            {
+                UserPanelButton.Visibility = Visibility.Hidden;
+                btAirlinesAdminPanel.Visibility = Visibility.Hidden;
+                btAirportsAdminWindow.Visibility = Visibility.Hidden;
+                btFlightsAdminPanel.Visibility = Visibility.Hidden;
+                btTicketsAdminPanel.Visibility = Visibility.Hidden;
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -70,6 +78,13 @@ namespace ProjektLotnisko
         {
             TicketWindowAdmin ticketWindowAdmin = new TicketWindowAdmin();
             ticketWindowAdmin.ShowDialog();
+        }
+
+        private void btLogOut_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow noweOkno = new MainWindow();
+            this.Close();
+            noweOkno.ShowDialog();
         }
     }
 }

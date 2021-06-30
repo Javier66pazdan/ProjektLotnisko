@@ -68,7 +68,7 @@ namespace ProjektLotnisko.AdminWindows
             {
                 Flight newFlight = createFlightFromTextBox();
                 db.addFlight(newFlight);
-                listFlights.Add(newFlight)
+                listFlights.Add(newFlight);
             }
             catch
             {

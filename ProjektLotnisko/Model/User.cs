@@ -18,5 +18,6 @@ namespace ProjektLotnisko.DbClasses
         public string AdressNumber { get; set; }
         public string City { get; set; }
         public string Country { get; set; }
+        public string AccountType { get; set; }
     }
 }

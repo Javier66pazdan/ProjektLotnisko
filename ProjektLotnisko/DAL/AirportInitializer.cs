@@ -15,12 +15,12 @@ namespace ProjektLotnisko.DAL
         {
             var users = new List<User>
             {
-                new User{Email="admin",Password="admin",FirstName="admin",LastName="admin",
+                new User{Email="admin@gmail.com",Password="admin",FirstName="admin",LastName="admin",
                     SignUpDate=new DateTime(2000,5,1,8,30,52), AdressStreet="adminowa",AdressNumber="123"
-                    ,Country="Poland",City="Adminowo" },
+                    ,Country="Poland",City="Adminowo", AccountType= "admin"},
                 new User{Email="tester",Password="admin",FirstName="marek",LastName="tester",
                     SignUpDate=new DateTime(2003,5,1,8,30,52), AdressStreet="testowa",AdressNumber="42"
-                    ,Country="Poland",City="Rzeszów" }
+                    ,Country="Poland",City="Rzeszów", AccountType= "normal"}
             };
             users.ForEach(s => context.Users.Add(s));
             
