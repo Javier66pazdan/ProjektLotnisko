@@ -42,13 +42,19 @@ namespace ProjektLotnisko.AdminWindows
 
         Flight createFlightFromTextBox()
         {
+            TimeSpan tsArrival = new TimeSpan(Int32.Parse(hoursArrivalTimeField.Text), 
+                Int32.Parse(minutesArrivalTimeField.Text), 0);
+            TimeSpan tsDeparture = new TimeSpan(Int32.Parse(hoursDepartureTimeField.Text),
+                Int32.Parse(minutesDepartureTimeField.Text), 0);
+            DateTime dateTimeArrival = (DateTime)datePickerArrivalTime.SelectedDate+ tsArrival;
+            DateTime dateTimeDeparture = (DateTime)datePickerDepartureTime.SelectedDate + tsDeparture;
             Flight flight = new Flight()
             {
                 AirportFromLocation = (Airport)fromField.SelectedItem,
                 AirportToLocation = (Airport)toField.SelectedItem,
                 Airline = (Airline)airlineField.SelectedItem,
-                TimeArrival = DateTime.Now,
-                TimeDeparture = DateTime.Now,
+                TimeArrival = dateTimeArrival,
+                TimeDeparture = dateTimeDeparture,
                 FlightCode = flightCodeField.Text,
                 SeatsNumber = Int32.Parse(seatsNumberField.Text),
                 TicketPrice = Int32.Parse(ticketPriceField.Text)
@@ -58,9 +64,16 @@ namespace ProjektLotnisko.AdminWindows
 
         private void buttonAddUser_Click(object sender, RoutedEventArgs e)
         {
-            Flight newFlight = createFlightFromTextBox();
-            db.addFlight(newFlight);
-            listFlights.Add(newFlight);
+            try
+            {
+                Flight newFlight = createFlightFromTextBox();
+                db.addFlight(newFlight);
+                listFlights.Add(newFlight)
+            }
+            catch
+            {
+                MessageBox.Show("Błędne wartości");
+            }
         }
 
         private void buttonRemoveUser_Click(object sender, RoutedEventArgs e)
@@ -80,10 +93,18 @@ namespace ProjektLotnisko.AdminWindows
         {
             if (FlightListView.SelectedValue != null)
             {
-                Flight editedFlight = createFlightFromTextBox();
-                editedFlight.flightId = selectedFlight.flightId;
-                db.editFlight(editedFlight);
-                listFlights[FlightListView.SelectedIndex] = editedFlight;
+                Flight editedFlight;
+                try
+                {
+                    editedFlight = createFlightFromTextBox();
+                    editedFlight.flightId = selectedFlight.flightId;
+                    db.editFlight(editedFlight);
+                    listFlights[FlightListView.SelectedIndex] = editedFlight;
+                }
+                catch
+                {
+                    MessageBox.Show("Błędne wartości");
+                }
             }
             else
             {

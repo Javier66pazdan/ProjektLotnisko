@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjektLotnisko.AdminWindows"
         mc:Ignorable="d"
-        Title="FlightsWindowAdmin" Height="450" Width="910.85">
+        Title="FlightsWindowAdmin" Height="450" Width="1003.497">
     <Grid>
         <ListView x:Name="FlightListView" HorizontalAlignment="Left" Height="313" Margin="10,10,0,0" VerticalAlignment="Top" Width="524" SelectionChanged="FlightListWindow_SelectionChanged">
             <ListView.View>
@@ -22,8 +22,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBox x:Name="timeDepartureField" HorizontalAlignment="Left" Height="23" Margin="662,67,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Text="{Binding TimeDeparture, Mode=OneWay}" />
-        <TextBox x:Name="timeArrivalField" HorizontalAlignment="Left" Height="23" Margin="662,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding TimeArrival, Mode=OneWay}"/>
+        <DatePicker Name="datePickerDepartureTime" HorizontalAlignment="Left" Height="23" Margin="662,67,0,0" VerticalAlignment="Top" Width="120" SelectedDate="{Binding TimeDeparture.Date, Mode=OneWay}"></DatePicker>
         <TextBox x:Name="flightCodeField" HorizontalAlignment="Left" Height="23" Margin="662,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding FlightCode, Mode=OneWay}"/>
         <TextBox x:Name="seatsNumberField" HorizontalAlignment="Left" Height="23" Margin="662,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding SeatsNumber, Mode=OneWay}"/>
         <Label Content="Skąd:" HorizontalAlignment="Left" Margin="586,7,0,0" VerticalAlignment="Top"/>
@@ -41,6 +40,13 @@
         <ComboBox x:Name="airlineField" ItemsSource="{Binding}" SelectedValuePath="AirlineId" DisplayMemberPath="Name" SelectionChanged="airlineField_SelectionChanged" HorizontalAlignment="Left" Margin="662,124,0,0" VerticalAlignment="Top" Width="120" IsEditable="True" IsReadOnly="True" Text="{Binding Airline.Name, Mode=OneWay}"/>
         <TextBox x:Name="ticketPriceField" HorizontalAlignment="Left" Height="23" Margin="662,211,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding TicketPrice, Mode=OneWay}"/>
         <Label Content="Cena biletu:" HorizontalAlignment="Left" Margin="539,207,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="datePickerArrivalTime" HorizontalAlignment="Left" Height="23" Margin="662,96,0,0" VerticalAlignment="Top" Width="120" SelectedDate="{Binding TimeArrival.Date, Mode=OneWay}"/>
+        <TextBox x:Name="hoursDepartureTimeField" HorizontalAlignment="Left" Height="23" Margin="787,67,0,0" TextWrapping="Wrap" Text="{Binding TimeDeparture.Hour, Mode=OneWay}" VerticalAlignment="Top" Width="33" MaxLength="2"/>
+        <TextBox x:Name="minutesDepartureTimeField" HorizontalAlignment="Left" Height="23" Margin="833,67,0,0" TextWrapping="Wrap" Text="{Binding TimeDeparture.Minute, Mode=OneWay}" VerticalAlignment="Top" Width="33" MaxLength="2"/>
+        <Label Content=":" HorizontalAlignment="Left" Margin="820,64,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="hoursArrivalTimeField" HorizontalAlignment="Left" Height="23" Margin="787,96,0,0" TextWrapping="Wrap" Text="{Binding TimeArrival.Hour, Mode=OneWay}" VerticalAlignment="Top" Width="33" MaxLength="2"/>
+        <TextBox x:Name="minutesArrivalTimeField" HorizontalAlignment="Left" Height="23" Margin="833,96,0,0" TextWrapping="Wrap" Text="{Binding TimeArrival.Minute, Mode=OneWay}" VerticalAlignment="Top" Width="33" MaxLength="2"/>
+        <Label Content=":" HorizontalAlignment="Left" Margin="820,93,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
