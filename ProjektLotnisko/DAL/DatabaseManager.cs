@@ -122,5 +122,10 @@ namespace ProjektLotnisko.DAL
             db.Tickets.AddOrUpdate(ticket);
             db.SaveChanges();
         }
+        public List<Ticket> ticketForUserList(User user)
+        {
+            var tickets = (from p in db.Tickets where p.User.UserId == user.UserId select p).ToList();
+            return tickets;
+        }
     }
 }

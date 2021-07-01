@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="checkFlight" Height="450" Width="800">
     <Grid>
-        <ListView x:Name="FlightListView" HorizontalAlignment="Left" Height="314" Margin="31,31,0,0" VerticalAlignment="Top" Width="585">
+        <ListView x:Name="FlightListView" HorizontalAlignment="Left" Height="314" Margin="31,31,0,0" VerticalAlignment="Top" Width="585" SelectionChanged="FlightListView_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Path=flightId}" />

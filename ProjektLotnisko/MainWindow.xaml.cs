@@ -39,6 +39,8 @@ namespace ProjektLotnisko
             //OMIJANIE HACKOWANIE LOGOWANIE
             if (emailField.Text == "admin")
             {
+                User emailUser = db.Users.First(o => o.Email == "admin@gmail.com");
+                zalogowanyUser = emailUser;
                 accountType = "admin";
                 MainPage noweOkno = new MainPage();
                 this.Close();

@@ -25,6 +25,8 @@ namespace ProjektLotnisko.UsersWindows
         ObservableCollection<Flight> listFlights;
         ObservableCollection<Airline> listAirline;
         ObservableCollection<Airport> listAirports;
+        ObservableCollection<User> listUsers;
+
         DatabaseManager db;
         Flight selectedFlight;
 
@@ -35,23 +37,27 @@ namespace ProjektLotnisko.UsersWindows
             listFlights = new ObservableCollection<Flight>(db.flightsList());
             listAirline = new ObservableCollection<Airline>(db.airlineList());
             listAirports = new ObservableCollection<Airport>(db.airportList());
+            listUsers = new ObservableCollection<User>(db.usersList());
+
             FlightListView.ItemsSource = listFlights;
 
         }
-     
 
-        private void FlightListWindow_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void FlightListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             selectedFlight = FlightListView.SelectedItem as Flight;
         }
 
         Ticket buyNewTicket()
         {
+            ObservableCollection<User> listuser2 = new ObservableCollection<User>(listUsers.Where
+              (x => x.Email.Contains(MainWindow.zalogowanyUser.Email)));
+            User uzytkownik = listuser2[0];
             Ticket ticket = new Ticket()
             {
-                User =(User)MainWindow.zalogowanyUser,
-                Flight = (Flight)selectedFlight,
-                State = stateField.Text,
+                User = uzytkownik,
+                Flight = selectedFlight,
+                State = "zarezerwowany",
             };
             return ticket;
         }
@@ -62,5 +68,6 @@ namespace ProjektLotnisko.UsersWindows
             db.addTicket(newTicket);
             MessageBox.Show("Kupiono bilet");
         }
+
     }
 }
