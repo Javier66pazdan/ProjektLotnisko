@@ -24,11 +24,14 @@ namespace ProjektLotnisko.AdminWindows
     {
         Airline selectedAirline;
         ObservableCollection<Airline> listAirlines;
+        ObservableCollection<Airline> listAirlinesSearch;
         DatabaseManager db;
         public AirlinesWindowAdmin()
         {
             InitializeComponent();
             db = new DatabaseManager();
+            cbSearch.Items.Add("Nazwa"); cbSearch.Items.Add("Kod"); cbSearch.Items.Add("Kraj");
+            cbSearch.SelectedItem = null;
             listAirlines = new ObservableCollection<Airline>(db.airlineList());
             AirlinesListView.ItemsSource = listAirlines;
         }
@@ -51,6 +54,7 @@ namespace ProjektLotnisko.AdminWindows
             Airline newAirline = createAirlineFromTextBox();
             db.addAirline(newAirline);
             listAirlines.Add(newAirline);
+            filterList();
         }
 
         private void buttonRemoveUser_Click(object sender, RoutedEventArgs e)
@@ -59,6 +63,7 @@ namespace ProjektLotnisko.AdminWindows
             {
                 db.removeAirline(selectedAirline);
                 listAirlines.Remove(selectedAirline);
+                filterList();
             }
             else
             {
@@ -74,6 +79,7 @@ namespace ProjektLotnisko.AdminWindows
                 editedAirline.AirlineId = selectedAirline.AirlineId;
                 db.editAirline(editedAirline);
                 listAirlines[AirlinesListView.SelectedIndex] = editedAirline;
+                filterList();
             }
             else
             {
@@ -85,6 +91,45 @@ namespace ProjektLotnisko.AdminWindows
         {
             selectedAirline = AirlinesListView.SelectedItem as Airline;
             this.DataContext = selectedAirline;
+        }
+
+        void filterList()
+        {
+            if (cbSearch.SelectedItem != null)
+            {
+                switch (cbSearch.SelectedItem)
+                {
+                    case "Nazwa":
+                        listAirlinesSearch = new ObservableCollection<Airline>(listAirlines.Where
+           (x => x.Name.Contains(tbSearch.Text))); break;
+                    case "Kod":
+                        listAirlinesSearch = new ObservableCollection<Airline>(listAirlines.Where
+                  (x => x.Code.Contains(tbSearch.Text))); break;
+                    case "Kraj":
+                        listAirlinesSearch = new ObservableCollection<Airline>(listAirlines.Where
+                 (x => x.CountryAirline.Contains(tbSearch.Text))); break;
+                }
+                AirlinesListView.ItemsSource = listAirlinesSearch;
+            }
+        }
+
+        private void btSearchStart_Click(object sender, RoutedEventArgs e)
+        {
+            if (cbSearch.SelectedItem == null)
+            {
+                MessageBox.Show("Wybierz pole do przeszukania");
+            }
+            else
+            {
+                filterList();
+            }
+        }
+
+        private void btSearchReset_Click(object sender, RoutedEventArgs e)
+        {
+            AirlinesListView.ItemsSource = listAirlines;
+            tbSearch.Text = "Wpisz szukaną wartość";
+            cbSearch.SelectedItem = null;
         }
     }
 }

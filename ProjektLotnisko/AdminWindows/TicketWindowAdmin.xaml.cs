@@ -24,6 +24,7 @@ namespace ProjektLotnisko.AdminWindows
     {
         Ticket selectedTicket;
         ObservableCollection<Ticket> listTickets;
+        ObservableCollection<Ticket> listTicketsSearch;
         ObservableCollection<User> listUsers;
         ObservableCollection<Flight> listFlights;
         DatabaseManager db;
@@ -32,6 +33,8 @@ namespace ProjektLotnisko.AdminWindows
         {
             InitializeComponent();
             db = new DatabaseManager();
+            cbSearch.Items.Add("Nazwisko"); cbSearch.Items.Add("Kod lotu");
+            cbSearch.SelectedItem = null;
             listTickets = new ObservableCollection<Ticket>(db.ticketList());
             listFlights = new ObservableCollection<Flight>(db.flightsList());
             listUsers = new ObservableCollection<User>(db.usersList());
@@ -56,6 +59,7 @@ namespace ProjektLotnisko.AdminWindows
             Ticket newTicket = createTicketFromTextBox();
             db.addTicket(newTicket);
             listTickets.Add(newTicket);
+            filterList();
         }
 
         private void buttonRemoveUser_Click(object sender, RoutedEventArgs e)
@@ -64,6 +68,7 @@ namespace ProjektLotnisko.AdminWindows
             {
                 db.removeTicket(selectedTicket);
                 listTickets.Remove(selectedTicket);
+                filterList();
             }
             else
             {
@@ -79,6 +84,7 @@ namespace ProjektLotnisko.AdminWindows
                 editedTicket.TicketId = selectedTicket.TicketId;
                 db.editTicket(editedTicket);
                 listTickets[TicketsListView.SelectedIndex] = editedTicket;
+                filterList();
             }
             else
             {
@@ -100,6 +106,42 @@ namespace ProjektLotnisko.AdminWindows
         private void flightField_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        void filterList()
+        {
+            if (cbSearch.SelectedItem != null)
+            {
+                switch (cbSearch.SelectedItem)
+                {
+                    case "Nazwisko":
+                        listTicketsSearch = new ObservableCollection<Ticket>(listTickets.Where
+           (x => x.User.LastName.Contains(tbSearch.Text))); break;
+                    case "Kod lotu":
+                        listTicketsSearch = new ObservableCollection<Ticket>(listTickets.Where
+                  (x => x.Flight.FlightCode.Contains(tbSearch.Text))); break;
+                }
+                TicketsListView.ItemsSource = listTicketsSearch;
+            }
+        }
+
+        private void btSearchStart_Click(object sender, RoutedEventArgs e)
+        {
+            if (cbSearch.SelectedItem == null)
+            {
+                MessageBox.Show("Wybierz pole do przeszukania");
+            }
+            else
+            {
+                filterList();
+            }
+        }
+
+        private void btSearchReset_Click(object sender, RoutedEventArgs e)
+        {
+            TicketsListView.ItemsSource = listTickets;
+            tbSearch.Text = "Wpisz szukaną wartość";
+            cbSearch.SelectedItem = null;
         }
     }
 }

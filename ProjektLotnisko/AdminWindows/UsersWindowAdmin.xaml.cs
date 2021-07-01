@@ -24,13 +24,18 @@ namespace ProjektLotnisko.AdminWindows
     {
         User selectedUser;
         ObservableCollection<User> listaUserow;
+        ObservableCollection<User> listaUserowSearch;
         DatabaseManager db;
         public UsersWindowAdmin()
         {
             InitializeComponent();
+            cbSearch.Items.Add("Email"); cbSearch.Items.Add("Nazwisko"); cbSearch.Items.Add("Miasto"); 
+            cbSearch.Items.Add("Ulica");  cbSearch.Items.Add("Kraj");
+            cbSearch.SelectedItem = null;
             db = new DatabaseManager();
             listaUserow = new ObservableCollection<User>(db.usersList());
             UserListView.ItemsSource = listaUserow;
+            
         }
 
         private void UserListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -64,6 +69,7 @@ namespace ProjektLotnisko.AdminWindows
             {
                 db.addUser(newUser);
                 listaUserow.Add(newUser);
+                filterList();
             }
             else
             {
@@ -79,6 +85,7 @@ namespace ProjektLotnisko.AdminWindows
                 editedUser.UserId = selectedUser.UserId;
                 db.editUser(editedUser);
                 listaUserow[UserListView.SelectedIndex] = editedUser;
+                filterList();
             }
             else
             {
@@ -92,11 +99,57 @@ namespace ProjektLotnisko.AdminWindows
             {
                 db.removeUser(selectedUser);
                 listaUserow.Remove(selectedUser);
+                filterList();
             }
             else
             {
                 MessageBox.Show("Wybierz pozycję do usunięcia", "Błąd");
             }
+        }
+
+        void filterList()
+        {
+            if (cbSearch.SelectedItem != null)
+            {
+                switch (cbSearch.SelectedItem)
+                {
+                    case "Nazwisko":
+                        listaUserowSearch = new ObservableCollection<User>(listaUserow.Where
+           (x => x.LastName.Contains(tbSearch.Text))); break;
+                    case "Email":
+                        listaUserowSearch = new ObservableCollection<User>(listaUserow.Where
+                  (x => x.Email.Contains(tbSearch.Text))); break;
+                    case "Miasto":
+                        listaUserowSearch = new ObservableCollection<User>(listaUserow.Where
+                 (x => x.City.Contains(tbSearch.Text))); break;
+                    case "Ulica":
+                        listaUserowSearch = new ObservableCollection<User>(listaUserow.Where
+                  (x => x.AdressStreet.Contains(tbSearch.Text))); break;
+                    case "Kraj":
+                        listaUserowSearch = new ObservableCollection<User>(listaUserow.Where
+                   (x => x.Country.Contains(tbSearch.Text))); break;
+                }
+                UserListView.ItemsSource = listaUserowSearch;
+            }
+        }
+
+        private void btSearchStart_Click(object sender, RoutedEventArgs e)
+        {
+            if (cbSearch.SelectedItem == null)
+            {
+                MessageBox.Show("Wybierz pole do przeszukania");
+            }
+            else
+            {
+                filterList();
+            }
+        }
+
+        private void btSearchReset_Click(object sender, RoutedEventArgs e)
+        {
+            UserListView.ItemsSource = listaUserow;
+            tbSearch.Text = "Wpisz szukaną wartość";
+            cbSearch.SelectedItem = null;
         }
     }
 }

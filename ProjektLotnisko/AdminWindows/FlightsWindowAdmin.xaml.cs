@@ -24,6 +24,7 @@ namespace ProjektLotnisko.AdminWindows
     {
         Flight selectedFlight;
         ObservableCollection<Flight> listFlights;
+        ObservableCollection<Flight> listFlightsSearch;
         ObservableCollection<Airline> listAirline;
         ObservableCollection<Airport> listAirports;
         DatabaseManager db;
@@ -31,6 +32,12 @@ namespace ProjektLotnisko.AdminWindows
         {
             InitializeComponent();
             db = new DatabaseManager();
+            cbSearch.Items.Add("Skąd"); cbSearch.Items.Add("Do"); cbSearch.Items.Add("Linia lotnicza");
+            cbSearch.Items.Add("Kod"); cbSearch.Items.Add("Liczba pasażerów (więcej niż)");
+            cbSearch.Items.Add("Liczba pasażerów (mniej niż)"); cbSearch.Items.Add("Cena (więcej niż)");
+            cbSearch.Items.Add("Cena (mniej niż)"); cbSearch.Items.Add("Miesiąc wylotu (liczba)");
+            cbSearch.Items.Add("Miesiąc przylotu (liczba)");
+            cbSearch.SelectedItem = null;
             listFlights = new ObservableCollection<Flight>(db.flightsList());
             listAirline = new ObservableCollection<Airline>(db.airlineList());
             listAirports = new ObservableCollection<Airport>(db.airportList());
@@ -69,6 +76,7 @@ namespace ProjektLotnisko.AdminWindows
                 Flight newFlight = createFlightFromTextBox();
                 db.addFlight(newFlight);
                 listFlights.Add(newFlight);
+                filterList();
             }
             catch
             {
@@ -82,6 +90,7 @@ namespace ProjektLotnisko.AdminWindows
             {
                 db.removeFlight(selectedFlight);
                 listFlights.Remove(selectedFlight);
+                filterList();
             }
             else
             {
@@ -100,6 +109,7 @@ namespace ProjektLotnisko.AdminWindows
                     editedFlight.flightId = selectedFlight.flightId;
                     db.editFlight(editedFlight);
                     listFlights[FlightListView.SelectedIndex] = editedFlight;
+                    filterList();
                 }
                 catch
                 {
@@ -131,6 +141,66 @@ namespace ProjektLotnisko.AdminWindows
         private void airlineField_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
          var item = airlineField.SelectedItem as Airline;
+        }
+
+        void filterList()
+        {
+            if (cbSearch.SelectedItem != null)
+            {
+                switch (cbSearch.SelectedItem)
+                {
+                    case "Skąd":
+                        listFlightsSearch = new ObservableCollection<Flight>(listFlights.Where
+           (x => x.AirportFromLocation.Name.Contains(tbSearch.Text))); break;
+                    case "Do":
+                        listFlightsSearch = new ObservableCollection<Flight>(listFlights.Where
+           (x => x.AirportToLocation.Name.Contains(tbSearch.Text))); break;
+                    case "Linia lotnicza":
+                        listFlightsSearch = new ObservableCollection<Flight>(listFlights.Where
+           (x => x.Airline.Name.Contains(tbSearch.Text))); break;
+                    case "Kod":
+                        listFlightsSearch = new ObservableCollection<Flight>(listFlights.Where
+           (x => x.FlightCode.Contains(tbSearch.Text))); break;
+                    case "Liczba (więcej niż)":
+                        listFlightsSearch = new ObservableCollection<Flight>(listFlights.Where
+           (x => x.SeatsNumber >= Int32.Parse(tbSearch.Text))); break;
+                    case "Liczba(mniej niż)":
+                        listFlightsSearch = new ObservableCollection<Flight>(listFlights.Where
+           (x => x.SeatsNumber <= Int32.Parse(tbSearch.Text))); break;
+                    case "Cena (więcej niż)":
+                        listFlightsSearch = new ObservableCollection<Flight>(listFlights.Where
+           (x => x.TicketPrice >= Int32.Parse(tbSearch.Text))); break;
+                    case "Cena (mniej niż)":
+                        listFlightsSearch = new ObservableCollection<Flight>(listFlights.Where
+           (x => x.TicketPrice <= Int32.Parse(tbSearch.Text))); break;
+                    case "Miesiąc wylotu(liczba)":
+                        listFlightsSearch = new ObservableCollection<Flight>(listFlights.Where
+           (x => x.TimeDeparture.Month.ToString().Contains(tbSearch.Text))); break;
+                    case "Miesiąc przylotu(liczba)":
+                        listFlightsSearch = new ObservableCollection<Flight>(listFlights.Where
+           (x => x.TimeArrival.Month.ToString().Contains(tbSearch.Text))); break;
+                }
+                FlightListView.ItemsSource = listFlightsSearch;
+            }
+        }
+
+        private void btSearchStart_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                filterList();
+            }
+            catch
+            {
+                MessageBox.Show("Niepoprawne wartości wyszukiwania");
+            }
+        }
+
+        private void btSearchReset_Click(object sender, RoutedEventArgs e)
+        {
+            FlightListView.ItemsSource = listFlights;
+            tbSearch.Text = "Wpisz szukaną wartość";
+            cbSearch.SelectedItem = null;
         }
     }
 }

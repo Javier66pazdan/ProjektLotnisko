@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjektLotnisko.AdminWindows"
         mc:Ignorable="d"
-        Title="TicketWindowAdmin" Height="450" Width="945.739">
+        Title="Panel zarządzania biletami" Height="480" Width="940">
     <Grid>
-        <ListView x:Name="TicketsListView" HorizontalAlignment="Left" Height="313" Margin="10,10,0,0" VerticalAlignment="Top" Width="524" SelectionChanged="TicketsListView_SelectionChanged">
+        <ListView x:Name="TicketsListView" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="680" SelectionChanged="TicketsListView_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding TicketId}" />
@@ -18,15 +18,25 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBox x:Name="stateField" HorizontalAlignment="Left" Height="23" Margin="662,67,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Text="{Binding TimeDeparture, Mode=OneWay}" />
-        <Label Content="Osoba:" HorizontalAlignment="Left" Margin="586,7,0,0" VerticalAlignment="Top"/>
-        <Label Content="Lot" HorizontalAlignment="Left" Margin="586,36,0,0" VerticalAlignment="Top"/>
-        <Label Content="Status:" HorizontalAlignment="Left" Margin="586,64,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.664,1.931"/>
-        <Button x:Name="buttonAddUser" Content="Dodaj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="662,229,0,0" Click="buttonAddUser_Click"/>
-        <Button x:Name="buttonRemoveUser" Content="Usun" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="662,254,0,0" Click="buttonRemoveUser_Click"/>
-        <Button x:Name="buttonEditUser" Content="Zapisz" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="662,279,0,0" Click="buttonEditUser_Click"/>
-        <ComboBox x:Name="userField" ItemsSource="{Binding}" SelectedValuePath="UserId" DisplayMemberPath="LastName" SelectionChanged="userField_SelectionChanged"  HorizontalAlignment="Left" Margin="662,11,0,0" VerticalAlignment="Top" Width="120" IsEditable="True" IsReadOnly="True" Text="{Binding User.LastName, Mode=OneWay}"/>
-        <ComboBox x:Name="flightField" ItemsSource="{Binding}" SelectedValuePath="FlightId" DisplayMemberPath="FlightCode" SelectionChanged="flightField_SelectionChanged" HorizontalAlignment="Left" Margin="662,37,0,0" VerticalAlignment="Top" Width="120" IsEditable="True" IsReadOnly="True" Text="{Binding Flight.FlightCode, Mode=OneWay}"/>
+        <Button x:Name="buttonAddUser" Content="Dodaj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="695,127,0,0" Click="buttonAddUser_Click"/>
+        <Button x:Name="buttonRemoveUser" Content="Usun" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="855,127,0,0" Click="buttonRemoveUser_Click"/>
+        <Button x:Name="buttonEditUser" Content="Zapisz" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="775,127,0,0" Click="buttonEditUser_Click"/>
+        <GroupBox Header="Bilet" HorizontalAlignment="Left" Height="115" Margin="695
+                  ,7,0,0" VerticalAlignment="Top" Width="227">
+            <Grid>
+                <TextBox x:Name="stateField" HorizontalAlignment="Left" Height="23" Margin="81,64,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Text="{Binding TimeDeparture, Mode=OneWay}" />
+                <Label Content="Osoba:" HorizontalAlignment="Left" Margin="5,4,0,0" VerticalAlignment="Top"/>
+                <Label Content="Lot" HorizontalAlignment="Left" Margin="5,33,0,0" VerticalAlignment="Top"/>
+                <Label Content="Status:" HorizontalAlignment="Left" Margin="5,61,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.664,1.931"/>
+                <ComboBox x:Name="userField" ItemsSource="{Binding}" SelectedValuePath="UserId" DisplayMemberPath="LastName" SelectionChanged="userField_SelectionChanged"  HorizontalAlignment="Left" Margin="81,8,0,0" VerticalAlignment="Top" Width="120" IsEditable="True" IsReadOnly="True" Text="{Binding User.LastName, Mode=OneWay}"/>
+                <ComboBox x:Name="flightField" ItemsSource="{Binding}" SelectedValuePath="FlightId" DisplayMemberPath="FlightCode" SelectionChanged="flightField_SelectionChanged" HorizontalAlignment="Left" Margin="81,34,0,0" VerticalAlignment="Top" Width="120" IsEditable="True" IsReadOnly="True" Text="{Binding Flight.FlightCode, Mode=OneWay}"/>
+
+            </Grid>
+        </GroupBox>
+        <Button x:Name="btSearchStart" Content="Wyszukaj" HorizontalAlignment="Left" Margin="532,415,0,0" VerticalAlignment="Top" Width="75" Click="btSearchStart_Click"/>
+        <ComboBox x:Name="cbSearch" HorizontalAlignment="Left" Margin="407,415,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btSearchReset" Content="Zresetuj" HorizontalAlignment="Left" Margin="612,415,0,0" VerticalAlignment="Top" Width="75" Click="btSearchReset_Click"/>
+        <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="23" Margin="10,415,0,0" TextWrapping="Wrap" Text="Wpisz szukaną wartość" VerticalAlignment="Top" Width="392" RenderTransformOrigin="0.367,0.217"/>
 
     </Grid>
 </Window>

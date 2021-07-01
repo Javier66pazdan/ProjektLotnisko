@@ -24,11 +24,15 @@ namespace ProjektLotnisko.AdminWindows
     {
         Airport selectedAirport;
         ObservableCollection<Airport> listAirports;
+        ObservableCollection<Airport> listAirportsSearch;
         DatabaseManager db;
         public AirportWindowAdmin()
         {
             InitializeComponent();
             db = new DatabaseManager();
+            cbSearch.Items.Add("Nazwa"); cbSearch.Items.Add("Kod"); cbSearch.Items.Add("Miasto");
+            cbSearch.Items.Add("Kraj");
+            cbSearch.SelectedItem = null;
             listAirports = new ObservableCollection<Airport>(db.airportList());
             ListViewAirport.ItemsSource = listAirports;
         }
@@ -51,6 +55,7 @@ namespace ProjektLotnisko.AdminWindows
             Airport newAirport = createAirportFromTextBox();
             db.addAirport(newAirport);
             listAirports.Add(newAirport);
+            filterList();
         }
 
         private void buttonRemoveUser_Click(object sender, RoutedEventArgs e)
@@ -59,6 +64,7 @@ namespace ProjektLotnisko.AdminWindows
             {
                 db.removeAirport(selectedAirport);
                 listAirports.Remove(selectedAirport);
+                filterList();
             }
             else
             {
@@ -74,6 +80,7 @@ namespace ProjektLotnisko.AdminWindows
                 editAirport.AirportId = selectedAirport.AirportId;
                 db.editAirport(editAirport);
                 listAirports[ListViewAirport.SelectedIndex] = editAirport;
+                filterList();
             }
             else
             {
@@ -85,6 +92,48 @@ namespace ProjektLotnisko.AdminWindows
         {
             selectedAirport = ListViewAirport.SelectedItem as Airport;
             this.DataContext = selectedAirport;
+        }
+
+        void filterList()
+        {
+            if (cbSearch.SelectedItem != null)
+            {
+                switch (cbSearch.SelectedItem)
+                {
+                    case "Nazwa":
+                        listAirportsSearch = new ObservableCollection<Airport>(listAirports.Where
+           (x => x.Name.Contains(tbSearch.Text))); break;
+                    case "Kod":
+                        listAirportsSearch = new ObservableCollection<Airport>(listAirports.Where
+                  (x => x.Code.Contains(tbSearch.Text))); break;
+                    case "Miasto":
+                        listAirportsSearch = new ObservableCollection<Airport>(listAirports.Where
+                 (x => x.City.Contains(tbSearch.Text))); break;
+                    case "Kraj":
+                        listAirportsSearch = new ObservableCollection<Airport>(listAirports.Where
+                  (x => x.CountryAirport.Contains(tbSearch.Text))); break;
+                }
+                ListViewAirport.ItemsSource = listAirportsSearch;
+            }
+        }
+
+        private void btSearchStart_Click(object sender, RoutedEventArgs e)
+        {
+            if (cbSearch.SelectedItem == null)
+            {
+                MessageBox.Show("Wybierz pole do przeszukania");
+            }
+            else
+            {
+                filterList();
+            }
+        }
+
+        private void btSearchReset_Click(object sender, RoutedEventArgs e)
+        {
+            ListViewAirport.ItemsSource = listAirports;
+            tbSearch.Text = "Wpisz szukaną wartość";
+            cbSearch.SelectedItem = null;
         }
     }
 }
