@@ -26,9 +26,7 @@ namespace ProjektLotnisko.UsersWindows
         ObservableCollection<Airline> listAirline;
         ObservableCollection<Airport> listAirports;
         DatabaseManager db;
-       // AirportManagementContext database;
         Flight selectedFlight;
-        User selectedUser;
 
         public checkFlight()
         {
@@ -51,7 +49,7 @@ namespace ProjektLotnisko.UsersWindows
         {
             Ticket ticket = new Ticket()
             {
-                User =(User)selectedUser,
+                User =(User)MainWindow.zalogowanyUser,
                 Flight = (Flight)selectedFlight,
                 State = stateField.Text,
             };

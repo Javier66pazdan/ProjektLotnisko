@@ -27,6 +27,8 @@ namespace ProjektLotnisko
         AirportManagementContext db;
         public static string email;
         public static string accountType;
+        public static User zalogowanyUser;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -47,6 +49,8 @@ namespace ProjektLotnisko
 
 
                 User emailUser = db.Users.First(o => o.Email == emailField.Text);
+                zalogowanyUser = emailUser;
+
                 if (db.Users.Any(o => o.Email == emailField.Text) 
                     && PasswordHasher.Verify(passwordBoxLogin.Password, emailUser.Password))
                 {
