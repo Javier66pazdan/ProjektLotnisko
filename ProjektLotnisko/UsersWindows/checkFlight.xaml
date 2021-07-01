@@ -23,7 +23,6 @@
             </ListView.View>
         </ListView>
         <Button x:Name="buyTicketBtn" Content="Kup bilet" HorizontalAlignment="Left" Margin="640,58,0,0" VerticalAlignment="Top" Width="117" Height="56" FontSize="24" Click="buyTicketBtn_Click"/>
-        <TextBox x:Name="stateField" HorizontalAlignment="Left" Height="23" Margin="640,157,0,0" TextWrapping="Wrap" Text="State" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>
