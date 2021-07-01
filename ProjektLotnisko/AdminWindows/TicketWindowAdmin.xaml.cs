@@ -27,6 +27,7 @@ namespace ProjektLotnisko.AdminWindows
         ObservableCollection<User> listUsers;
         ObservableCollection<Flight> listFlights;
         DatabaseManager db;
+      
         public TicketWindowAdmin()
         {
             InitializeComponent();

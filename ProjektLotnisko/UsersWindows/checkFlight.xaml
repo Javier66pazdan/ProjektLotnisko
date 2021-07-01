@@ -1,0 +1,29 @@
+﻿<Window x:Class="ProjektLotnisko.UsersWindows.checkFlight"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjektLotnisko.UsersWindows"
+        mc:Ignorable="d"
+        Title="checkFlight" Height="450" Width="800">
+    <Grid>
+        <ListView x:Name="FlightListView" HorizontalAlignment="Left" Height="314" Margin="31,31,0,0" VerticalAlignment="Top" Width="585">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Path=flightId}" />
+                    <GridViewColumn Header="Skąd" DisplayMemberBinding="{Binding Path=AirportFromLocation.Name}" />
+                    <GridViewColumn Header="Do" DisplayMemberBinding="{Binding Path=AirportToLocation.Name}" />
+                    <GridViewColumn Header="Czas wylotu" DisplayMemberBinding="{Binding Path=TimeDeparture}" />
+                    <GridViewColumn Header="Czas przylotu" DisplayMemberBinding="{Binding Path=TimeArrival}" />
+                    <GridViewColumn Header="Linia lotnicza" DisplayMemberBinding="{Binding Path=Airline.Name}" />
+                    <GridViewColumn Header="Kod lotu" DisplayMemberBinding="{Binding Path=FlightCode}" />
+                    <GridViewColumn Header="Liczba pasażerów" DisplayMemberBinding="{Binding Path=SeatsNumber}" />
+                    <GridViewColumn Header="Cena biletu" DisplayMemberBinding="{Binding Path=TicketPrice}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="buyTicketBtn" Content="Kup bilet" HorizontalAlignment="Left" Margin="640,58,0,0" VerticalAlignment="Top" Width="117" Height="56" FontSize="24" Click="buyTicketBtn_Click"/>
+        <TextBox x:Name="stateField" HorizontalAlignment="Left" Height="23" Margin="640,157,0,0" TextWrapping="Wrap" Text="State" VerticalAlignment="Top" Width="120"/>
+
+    </Grid>
+</Window>

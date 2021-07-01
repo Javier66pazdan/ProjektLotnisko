@@ -96,8 +96,14 @@
     <Compile Include="registerPage.xaml.cs">
       <DependentUpon>registerPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UsersWindows\checkFlight.xaml.cs">
+      <DependentUpon>checkFlight.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UsersWindows\editData.xaml.cs">
       <DependentUpon>editData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UsersWindows\myTicketsWindow.xaml.cs">
+      <DependentUpon>myTicketsWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="AdminWindows\AirlinesWindowAdmin.xaml">
       <SubType>Designer</SubType>
@@ -142,7 +148,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UsersWindows\checkFlight.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UsersWindows\editData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UsersWindows\myTicketsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

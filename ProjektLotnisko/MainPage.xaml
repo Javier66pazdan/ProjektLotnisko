@@ -8,10 +8,10 @@
         Title="MainPage" Height="490.909" Width="707.954" Background="#FFEDEDED">
     <Grid>
         <Button x:Name="btFlightsAdminPanel" Content="Panel lotów" HorizontalAlignment="Left" Margin="430,272,0,0" VerticalAlignment="Top" Width="250" Height="77" FontSize="36" Click="Button_Click_3"/>
-        <Button Content="Przeglądaj&#xA;loty" HorizontalAlignment="Left" Margin="39,51,0,0" VerticalAlignment="Top" Width="165" Height="93" FontSize="36"/>
+        <Button x:Name="checkFightBtn" Content="Przeglądaj&#xA;loty" HorizontalAlignment="Left" Margin="39,51,0,0" VerticalAlignment="Top" Width="165" Height="93" FontSize="36" Click="Button_Click_5"/>
         <Button x:Name="btAirportsAdminWindow" Content="Panel lotnisk" HorizontalAlignment="Left" Margin="430,104,0,0" VerticalAlignment="Top" Width="250" Height="76" FontSize="36" Click="Button_Click_4"/>
         <Button x:Name="btAirlinesAdminPanel" Content="Pan. linii lotniczych" HorizontalAlignment="Left" Margin="430,191,0,0" VerticalAlignment="Top" Width="250" Height="76" FontSize="36" Click="Button_Click_2"/>
-        <Button Content="Moja rezerwacja&#xA;" HorizontalAlignment="Left" Margin="39,161,0,0" VerticalAlignment="Top" Width="353" Height="111" FontSize="36"/>
+        <Button Content="Moja rezerwacja&#xA;" HorizontalAlignment="Left" Margin="39,161,0,0" VerticalAlignment="Top" Width="353" Height="111" FontSize="36" Click="Button_Click_6"/>
         <Button x:Name="editDataBtn" Content="Edytuj &#xD;&#xA;dane&#xA;" HorizontalAlignment="Left" Margin="227,51,0,0" VerticalAlignment="Top" Width="165" Height="93" FontSize="36" Click="Button_Click_1"/>
         <Button x:Name="UserPanelButton" Content="Pan. uzytkownikow" HorizontalAlignment="Left" Margin="430,23,0,0" VerticalAlignment="Top" Width="250" Height="76" FontSize="36" Click="UserPanelButton_Click"/>
         <Label x:Name="nameLabel" HorizontalAlignment="Left" Margin="139,23,0,0" VerticalAlignment="Top" Height="28" Width="323"/>
