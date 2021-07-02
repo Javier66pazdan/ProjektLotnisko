@@ -23,9 +23,12 @@ namespace ProjektLotnisko.UsersWindows
     public partial class checkFlight : Window
     {
         ObservableCollection<Flight> listFlights;
+        ObservableCollection<Flight> listFlightsSearch;
+        ObservableCollection<Flight> listFlightsSearchHelper;
         ObservableCollection<Airline> listAirline;
         ObservableCollection<Airport> listAirports;
         ObservableCollection<User> listUsers;
+        bool changedDateMin, changedDateMax;
 
         DatabaseManager db;
         Flight selectedFlight;
@@ -38,6 +41,7 @@ namespace ProjektLotnisko.UsersWindows
             listAirline = new ObservableCollection<Airline>(db.airlineList());
             listAirports = new ObservableCollection<Airport>(db.airportList());
             listUsers = new ObservableCollection<User>(db.usersList());
+            changedDateMin = false; changedDateMax = false;
 
             FlightListView.ItemsSource = listFlights;
 
@@ -69,5 +73,71 @@ namespace ProjektLotnisko.UsersWindows
             MessageBox.Show("Kupiono bilet");
         }
 
+        private void btSearch_Click(object sender, RoutedEventArgs e)
+        {
+            listFlightsSearch = listFlights;
+            if (tbFrom.Text != "")
+            {
+                listFlightsSearchHelper = new ObservableCollection<Flight>(listFlightsSearch.Where
+           (x => x.AirportFromLocation.Name.Contains(tbFrom.Text))); listFlightsSearch = listFlightsSearchHelper;
+            }
+            if (tbTo.Text != "")
+            {
+                listFlightsSearchHelper = new ObservableCollection<Flight>(listFlightsSearch.Where
+           (x => x.AirportToLocation.Name.Contains(tbTo.Text))); listFlightsSearch = listFlightsSearchHelper;
+            }
+            if (changedDateMin)
+            {
+                listFlightsSearchHelper = new ObservableCollection<Flight>(listFlightsSearch.Where
+           (x => x.TimeDeparture.Day>= datePickerTimeMin.SelectedDate.Value.Day &&
+           x.TimeDeparture.Month>=datePickerTimeMin.SelectedDate.Value.Month));
+                listFlightsSearch = listFlightsSearchHelper;
+            }
+            if (changedDateMax)
+            {
+                listFlightsSearchHelper = new ObservableCollection<Flight>(listFlightsSearch.Where
+           (x => x.TimeDeparture.Day <= datePickerTimeMax.SelectedDate.Value.Day &&
+           x.TimeDeparture.Month <= datePickerTimeMax.SelectedDate.Value.Month));
+                listFlightsSearch = listFlightsSearchHelper;
+            }
+            if (tbAirline.Text != "")
+            {
+                listFlightsSearchHelper = new ObservableCollection<Flight>(listFlightsSearch.Where
+               (x => x.Airline.Name.Contains(tbAirline.Text))); listFlightsSearch = listFlightsSearchHelper;
+            }
+            if (tbCode.Text !="")
+            {
+                listFlightsSearchHelper = new ObservableCollection<Flight>(listFlightsSearch.Where
+              (x => x.FlightCode.Contains(tbCode.Text))); listFlightsSearch = listFlightsSearchHelper;
+            }
+            if (tbPriceMin.Text != "")
+            {
+                listFlightsSearchHelper = new ObservableCollection<Flight>(listFlightsSearch.Where
+              (x => x.TicketPrice >= Int32.Parse(tbPriceMin.Text))); listFlightsSearch = listFlightsSearchHelper;
+            }
+            if (tbPriceMax.Text != "")
+            {
+                listFlightsSearchHelper = new ObservableCollection<Flight>(listFlightsSearch.Where
+              (x => x.TicketPrice <= Int32.Parse(tbPriceMax.Text))); listFlightsSearch = listFlightsSearchHelper;
+            }
+
+            FlightListView.ItemsSource = listFlightsSearch;
+        }
+
+        private void btReset_Click(object sender, RoutedEventArgs e)
+        {
+            FlightListView.ItemsSource = listFlights;
+            changedDateMin = false; changedDateMax = false;
+        }
+
+        private void datePickerTimeMin_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            changedDateMin = true;
+        }
+
+        private void datePickerTimeMax_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            changedDateMax = true;
+        }
     }
 }

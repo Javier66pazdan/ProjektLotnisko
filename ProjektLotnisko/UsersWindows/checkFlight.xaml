@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjektLotnisko.UsersWindows"
         mc:Ignorable="d"
-        Title="checkFlight" Height="450" Width="800">
+        Title="checkFlight" Height="480" Width="940">
     <Grid>
-        <ListView x:Name="FlightListView" HorizontalAlignment="Left" Height="314" Margin="31,31,0,0" VerticalAlignment="Top" Width="585" SelectionChanged="FlightListView_SelectionChanged">
+        <ListView x:Name="FlightListView" HorizontalAlignment="Left" Height="314" Margin="337,0,0,0" VerticalAlignment="Top" Width="585" SelectionChanged="FlightListView_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Path=flightId}" />
@@ -22,7 +22,26 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="buyTicketBtn" Content="Kup bilet" HorizontalAlignment="Left" Margin="640,58,0,0" VerticalAlignment="Top" Width="117" Height="56" FontSize="24" Click="buyTicketBtn_Click"/>
+        <Button x:Name="buyTicketBtn" Content="Kup bilet" HorizontalAlignment="Left" Margin="665,353,0,0" VerticalAlignment="Top" Width="117" Height="56" FontSize="24" Click="buyTicketBtn_Click"/>
+        <Label Content="Wyszukiwanie" HorizontalAlignment="Left" Margin="56,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Skąd" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top"/>
+        <Label Content="Do" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top"/>
+        <Label Content="czas wylotu" HorizontalAlignment="Left" Margin="8,97,0,0" VerticalAlignment="Top"/>
+        <Label Content="linia lotnicza" HorizontalAlignment="Left" Margin="8,123,0,0" VerticalAlignment="Top"/>
+        <Label Content="kod lotu" HorizontalAlignment="Left" Margin="10,154,0,0" VerticalAlignment="Top"/>
+        <Label Content="cena" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbFrom" HorizontalAlignment="Left" Height="23" Margin="106,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbTo" HorizontalAlignment="Left" Height="23" Margin="106,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbAirline" HorizontalAlignment="Left" Height="23" Margin="106,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbCode" HorizontalAlignment="Left" Height="23" Margin="106,158,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbPriceMin" HorizontalAlignment="Left" Height="23" Margin="106,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="44"/>
+        <Button x:Name="btSearch" Content="Wyszukaj" HorizontalAlignment="Left" Margin="110,217,0,0" VerticalAlignment="Top" Width="75" Click="btSearch_Click"/>
+        <Button x:Name="btReset" Content="Reset" HorizontalAlignment="Left" Margin="190,217,0,0" VerticalAlignment="Top" Width="75" Click="btReset_Click"/>
+        <TextBox x:Name="tbPriceMax" HorizontalAlignment="Left" Height="23" Margin="175,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="44"/>
+        <Label Content="-" HorizontalAlignment="Left" Margin="155,186,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="datePickerTimeMin" HorizontalAlignment="Left" Height="23" Margin="106,98,0,0" VerticalAlignment="Top" Width="64" SelectedDate="{Binding TimeDeparture.Date, Mode=OneWay}" SelectedDateChanged="datePickerTimeMin_SelectedDateChanged"/>
+        <Label Content="-" HorizontalAlignment="Left" Margin="170,95,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="datePickerTimeMax" HorizontalAlignment="Left" Height="23" Margin="190,98,0,0" VerticalAlignment="Top" Width="64" SelectedDate="{Binding TimeDeparture.Date, Mode=OneWay}" SelectedDateChanged="datePickerTimeMax_SelectedDateChanged"/>
 
     </Grid>
 </Window>
