@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ProjektLotnisko.DbClasses;
 using ProjektLotnisko.DAL;
+using System.Text.RegularExpressions;
 
 namespace ProjektLotnisko.AdminWindows
 {
@@ -22,6 +23,7 @@ namespace ProjektLotnisko.AdminWindows
     /// </summary>
     public partial class AirlinesWindowAdmin : Window
     {
+
         Airline selectedAirline;
         ObservableCollection<Airline> listAirlines;
         ObservableCollection<Airline> listAirlinesSearch;
@@ -131,5 +133,11 @@ namespace ProjektLotnisko.AdminWindows
             tbSearch.Text = "Wpisz szukaną wartość";
             cbSearch.SelectedItem = null;
         }
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
     }
 }

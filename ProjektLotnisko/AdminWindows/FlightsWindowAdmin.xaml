@@ -43,11 +43,11 @@
                 <TextBox x:Name="ticketPriceField" HorizontalAlignment="Left" Height="23" Margin="120,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding TicketPrice, Mode=OneWay}" TabIndex="7"/>
                 <Label Content="Cena biletu:" HorizontalAlignment="Left" Margin="10,207,0,-42" VerticalAlignment="Top"/>
                 <DatePicker x:Name="datePickerArrivalTime" HorizontalAlignment="Left" Height="23" Margin="120,95,0,0" VerticalAlignment="Top" Width="120" SelectedDate="{Binding TimeArrival.Date, Mode=OneWay}"/>
-                <TextBox x:Name="hoursDepartureTimeField" HorizontalAlignment="Left" Height="23" Margin="245,67,0,0" TextWrapping="Wrap" Text="{Binding TimeDeparture.Hour, Mode=OneWay}" VerticalAlignment="Top" Width="33" MaxLength="2" TabIndex="1"/>
-                <TextBox x:Name="minutesDepartureTimeField" HorizontalAlignment="Left" Height="23" Margin="301,67,0,0" TextWrapping="Wrap" Text="{Binding TimeDeparture.Minute, Mode=OneWay}" VerticalAlignment="Top" Width="33" MaxLength="2" TabIndex="2"/>
+                <TextBox x:Name="hoursDepartureTimeField" HorizontalAlignment="Left" Height="23" Margin="245,67,0,0" TextWrapping="Wrap" Text="{Binding TimeDeparture.Hour, Mode=OneWay}" VerticalAlignment="Top" Width="33" MaxLength="2" TabIndex="1" PreviewTextInput="NumberValidationTextBox"/>
+                <TextBox x:Name="minutesDepartureTimeField" HorizontalAlignment="Left" Height="23" Margin="301,67,0,0" TextWrapping="Wrap" Text="{Binding TimeDeparture.Minute, Mode=OneWay}" VerticalAlignment="Top" Width="33" MaxLength="2" TabIndex="2" PreviewTextInput="NumberValidationTextBox"/>
                 <Label Content=":" HorizontalAlignment="Left" Margin="283,66,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.923,0.577"/>
-                <TextBox x:Name="hoursArrivalTimeField" HorizontalAlignment="Left" Height="23" Margin="245,95,0,0" TextWrapping="Wrap" Text="{Binding TimeArrival.Hour, Mode=OneWay}" VerticalAlignment="Top" Width="33" MaxLength="2" TabIndex="3"/>
-                <TextBox x:Name="minutesArrivalTimeField" HorizontalAlignment="Left" Height="23" Margin="301,95,0,0" TextWrapping="Wrap" Text="{Binding TimeArrival.Minute, Mode=OneWay}" VerticalAlignment="Top" Width="33" MaxLength="2" TabIndex="4"/>
+                <TextBox x:Name="hoursArrivalTimeField" HorizontalAlignment="Left" Height="23" Margin="245,95,0,0" TextWrapping="Wrap" Text="{Binding TimeArrival.Hour, Mode=OneWay}" VerticalAlignment="Top" Width="33" MaxLength="2" TabIndex="3" PreviewTextInput="NumberValidationTextBox"/>
+                <TextBox x:Name="minutesArrivalTimeField" HorizontalAlignment="Left" Height="23" Margin="301,95,0,0" TextWrapping="Wrap" Text="{Binding TimeArrival.Minute, Mode=OneWay}" VerticalAlignment="Top" Width="33" MaxLength="2" TabIndex="4" PreviewTextInput="NumberValidationTextBox"/>
                 <Label Content=":" HorizontalAlignment="Left" Margin="283,95,0,0" VerticalAlignment="Top" RenderTransformOrigin="2.769,0.538"/>
 
             </Grid>
