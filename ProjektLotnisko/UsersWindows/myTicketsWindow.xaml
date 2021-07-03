@@ -5,20 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjektLotnisko.UsersWindows"
         mc:Ignorable="d"
-        Title="Moje bilety" Height="344" Width="800">
+        Title="Moje bilety" Height="344" Width="676">
     <Grid>
-        <ListView x:Name="TicketList1" HorizontalAlignment="Left" Height="289" Margin="10,10,0,0" VerticalAlignment="Top" Width="565">
+        <ListView x:Name="TicketList1" HorizontalAlignment="Left" Height="289" Margin="10,10,0,0" VerticalAlignment="Top" Width="565" SelectionChanged="TicketList1_SelectionChanged">
             <ListView.View>
                 <GridView x:Name="TicketList">
-                    <GridViewColumn Header="Skąd" DisplayMemberBinding="{Binding Path=AirportFromLocation.Name}" />
-                    <GridViewColumn Header="Do" DisplayMemberBinding="{Binding Path=AirportToLocation.Name}" />
-                    <GridViewColumn Header="Czas wylotu" DisplayMemberBinding="{Binding Path=TimeDeparture}" />
-                    <GridViewColumn Header="Czas przylotu" DisplayMemberBinding="{Binding Path=TimeArrival}" />
-                    <GridViewColumn Header="Linia lotnicza" DisplayMemberBinding="{Binding Path=Airline.Name}" />
-                    <GridViewColumn Header="Cena biletu" DisplayMemberBinding="{Binding Path=TicketPrice}" />
+                    <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Path=State}" />
+                    <GridViewColumn Header="Skąd" DisplayMemberBinding="{Binding Path=Flight.AirportFromLocation.Name}" />
+                    <GridViewColumn Header="Do" DisplayMemberBinding="{Binding Path=Flight.AirportToLocation.Name}" />
+                    <GridViewColumn Header="Czas wylotu" DisplayMemberBinding="{Binding Path=Flight.TimeDeparture}" />
+                    <GridViewColumn Header="Czas przylotu" DisplayMemberBinding="{Binding Path=Flight.TimeArrival}" />
+                    <GridViewColumn Header="Linia lotnicza" DisplayMemberBinding="{Binding Path=Flight.Airline.Name}" />
+                    <GridViewColumn Header="Cena biletu" DisplayMemberBinding="{Binding Path=Flight.TicketPrice}" />
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button x:Name="btCancelTicket" Content="Anuluj bilet" HorizontalAlignment="Left" Margin="580,10,0,0" VerticalAlignment="Top" Width="75" Height="48" Click="btCancelTicket_Click"/>
 
     </Grid>
 </Window>

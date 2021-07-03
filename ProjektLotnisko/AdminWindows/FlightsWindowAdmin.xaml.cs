@@ -38,6 +38,12 @@ namespace ProjektLotnisko.AdminWindows
             cbSearch.Items.Add("Cena (mniej niż)"); cbSearch.Items.Add("Miesiąc wylotu (liczba)");
             cbSearch.Items.Add("Miesiąc przylotu (liczba)");
             cbSearch.SelectedItem = null;
+
+            minutesArrivalTimeField.Text = "00";
+            minutesDepartureTimeField.Text = "00";
+            hoursArrivalTimeField.Text = "12";
+            hoursDepartureTimeField.Text = "12";
+
             listFlights = new ObservableCollection<Flight>(db.flightsList());
             listAirline = new ObservableCollection<Airline>(db.airlineList());
             listAirports = new ObservableCollection<Airport>(db.airportList());
@@ -71,16 +77,23 @@ namespace ProjektLotnisko.AdminWindows
 
         private void buttonAddUser_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (!db.isCodeFlightAvailable(flightCodeField.Text))
             {
-                Flight newFlight = createFlightFromTextBox();
-                db.addFlight(newFlight);
-                listFlights.Add(newFlight);
-                filterList();
+                MessageBox.Show("Kod lodu zajęty", "Błąd");
             }
-            catch
+            else
             {
-                MessageBox.Show("Błędne wartości");
+                try
+                {
+                    Flight newFlight = createFlightFromTextBox();
+                    db.addFlight(newFlight);
+                    listFlights.Add(newFlight);
+                    filterList();
+                }
+                catch
+                {
+                    MessageBox.Show("Błędne wartości");
+                }
             }
         }
 
@@ -100,7 +113,11 @@ namespace ProjektLotnisko.AdminWindows
 
         private void buttonEditUser_Click(object sender, RoutedEventArgs e)
         {
-            if (FlightListView.SelectedValue != null)
+            if (!db.isCodeFlightAvailable(flightCodeField.Text))
+            {
+                MessageBox.Show("Kod lodu zajęty", "Błąd");
+            }
+            else if (FlightListView.SelectedValue != null)
             {
                 Flight editedFlight;
                 try

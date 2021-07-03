@@ -26,7 +26,7 @@
         <ComboBox x:Name="cbSearch" HorizontalAlignment="Left" Margin="410,414,0,0" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="btSearchReset" Content="Zresetuj" HorizontalAlignment="Left" Margin="615,414,0,0" VerticalAlignment="Top" Width="75" Click="btSearchReset_Click"/>
         <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="23" Margin="10,414,0,0" TextWrapping="Wrap" Text="Wpisz szukaną wartość" VerticalAlignment="Top" Width="395" RenderTransformOrigin="0.367,0.217"/>
-        <GroupBox Header="Linia lotnicza" HorizontalAlignment="Left" Height="274" Margin="695,10,0,0" VerticalAlignment="Top" Width="224">
+        <GroupBox Header="Linia lotnicza" HorizontalAlignment="Left" Height="274" Margin="695,10,0,0" VerticalAlignment="Top" Width="224" BorderBrush="Black" BorderThickness="2,2,2,0">
             <Grid>
                 <TextBox x:Name="nameField" HorizontalAlignment="Left" Height="23" Margin="78,6,-25,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Name, Mode=OneWay}"/>
                 <TextBox x:Name="codeField" HorizontalAlignment="Left" Height="23" Margin="78,34,-25,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Code, Mode=OneWay}"/>

@@ -24,6 +24,8 @@ namespace ProjektLotnisko.UsersWindows
         ObservableCollection<Flight> listFlights;
         ObservableCollection<Airline> listAirline;
         ObservableCollection<Airport> listAirports;
+        ObservableCollection<Ticket> listTickets;
+        Ticket selectedTicket;
         DatabaseManager db;
         public myTicketsWindow()
         {
@@ -32,7 +34,31 @@ namespace ProjektLotnisko.UsersWindows
             listFlights = new ObservableCollection<Flight>(db.flightsList());
             listAirline = new ObservableCollection<Airline>(db.airlineList());
             listAirports = new ObservableCollection<Airport>(db.airportList());
-            TicketList1.ItemsSource = listFlights;
+            listTickets = new ObservableCollection<Ticket>(db.ticketForUserList
+                (db.findUserWithEmail(MainWindow.zalogowanyUser.Email)));
+            TicketList1.ItemsSource = listTickets;
+        }
+
+        private void btCancelTicket_Click(object sender, RoutedEventArgs e)
+        {
+            if (TicketList1.SelectedValue != null){
+
+                Ticket editedTicket = selectedTicket;
+                editedTicket.State = "Anulowany";
+                editedTicket.TicketId = selectedTicket.TicketId;
+                db.editTicket(editedTicket);
+                listTickets[TicketList1.SelectedIndex] = editedTicket;
+                TicketList1.ItemsSource = listTickets;
+            }
+            else
+            {
+                MessageBox.Show("Wybierz bilet do anulowania", "Błąd");
+            }
+        }
+
+        private void TicketList1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedTicket = TicketList1.SelectedItem as Ticket;
         }
     }
 }

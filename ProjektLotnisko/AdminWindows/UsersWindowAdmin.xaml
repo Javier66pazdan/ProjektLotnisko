@@ -31,7 +31,7 @@
         <ComboBox x:Name="cbSearch" HorizontalAlignment="Left" Margin="407,415,0,0" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="btSearchReset" Content="Zresetuj" HorizontalAlignment="Left" Margin="612,415,0,0" VerticalAlignment="Top" Width="75" Click="btSearchReset_Click"/>
         <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="23" Margin="10,415,0,0" TextWrapping="Wrap" Text="Wpisz szukaną wartość" VerticalAlignment="Top" Width="392" RenderTransformOrigin="0.367,0.217"/>
-        <GroupBox Header="Konto" HorizontalAlignment="Left" Height="303" Margin="695,10,0,0" VerticalAlignment="Top" Width="230">
+        <GroupBox Header="Konto" HorizontalAlignment="Left" Height="303" Margin="695,10,0,0" VerticalAlignment="Top" Width="230" BorderThickness="2" BorderBrush="Black">
             <Grid Margin="0,0,0,0">
                 <TextBox x:Name="emailField" HorizontalAlignment="Left" Height="23" Margin="88,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Email, Mode=OneWay}"/>
                 <TextBox x:Name="passwordField" HorizontalAlignment="Left" Height="23" Margin="88,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Password, Mode=OneWay}"/>

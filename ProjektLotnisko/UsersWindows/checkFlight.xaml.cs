@@ -61,7 +61,7 @@ namespace ProjektLotnisko.UsersWindows
             {
                 User = uzytkownik,
                 Flight = selectedFlight,
-                State = "zarezerwowany",
+                State = "Zarezerwowany",
             };
             return ticket;
         }

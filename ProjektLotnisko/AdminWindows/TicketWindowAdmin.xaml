@@ -11,6 +11,7 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding TicketId}" />
+                    <GridViewColumn Header="Email" DisplayMemberBinding="{Binding User.Email}" />
                     <GridViewColumn Header="Imie" DisplayMemberBinding="{Binding User.FirstName}" />
                     <GridViewColumn Header="Nazwisko" DisplayMemberBinding="{Binding User.LastName}" />
                     <GridViewColumn Header="Lot" DisplayMemberBinding="{Binding Flight.FlightCode}" />
@@ -22,7 +23,7 @@
         <Button x:Name="buttonRemoveUser" Content="Usun" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="855,127,0,0" Click="buttonRemoveUser_Click"/>
         <Button x:Name="buttonEditUser" Content="Zapisz" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="775,127,0,0" Click="buttonEditUser_Click"/>
         <GroupBox Header="Bilet" HorizontalAlignment="Left" Height="115" Margin="695
-                  ,7,0,0" VerticalAlignment="Top" Width="227">
+                  ,7,0,0" VerticalAlignment="Top" Width="227" BorderBrush="Black" BorderThickness="2">
             <Grid>
                 <TextBox x:Name="stateField" HorizontalAlignment="Left" Height="23" Margin="81,64,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Text="{Binding TimeDeparture, Mode=OneWay}" />
                 <Label Content="Osoba:" HorizontalAlignment="Left" Margin="5,4,0,0" VerticalAlignment="Top"/>

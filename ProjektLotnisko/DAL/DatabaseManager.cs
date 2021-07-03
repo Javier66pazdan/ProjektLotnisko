@@ -143,10 +143,15 @@ namespace ProjektLotnisko.DAL
             User emailUser = db.Users.Single(o => o.UserId == id);
             return emailUser;
         }
-
         public void saveChanges()
         {
             db.SaveChanges();
+        }
+        public bool isCodeFlightAvailable(string code)
+        {
+            if (db.Flights.Any(o => o.FlightCode == code))
+            { return false; }
+            return true;
         }
     }
 }

@@ -25,7 +25,7 @@
         <Button x:Name="buttonAddUser" Content="Dodaj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="695,267,0,0" Click="buttonAddUser_Click"/>
         <Button x:Name="buttonRemoveUser" Content="Usun" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="855,267,0,0" Click="buttonRemoveUser_Click"/>
         <Button x:Name="buttonEditUser" Content="Zapisz" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="775,267,0,0" Click="buttonEditUser_Click"/>
-        <GroupBox Header="Lot" HorizontalAlignment="Left" Height="262" Margin="689,0,0,0" VerticalAlignment="Top" Width="353">
+        <GroupBox Header="Lot" HorizontalAlignment="Left" Height="262" Margin="689,0,0,0" VerticalAlignment="Top" Width="353" BorderBrush="Black" BorderThickness="2">
             <Grid>
                 <DatePicker x:Name="datePickerDepartureTime" HorizontalAlignment="Left" Height="23" Margin="120,67,0,0" VerticalAlignment="Top" Width="120" SelectedDate="{Binding TimeDeparture.Date, Mode=OneWay}"/>
                 <TextBox x:Name="flightCodeField" HorizontalAlignment="Left" Height="23" Margin="120,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding FlightCode, Mode=OneWay}"/>
