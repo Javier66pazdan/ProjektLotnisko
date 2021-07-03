@@ -35,6 +35,7 @@ namespace ProjektLotnisko
                 btAirportsAdminWindow.Visibility = Visibility.Hidden;
                 btFlightsAdminPanel.Visibility = Visibility.Hidden;
                 btTicketsAdminPanel.Visibility = Visibility.Hidden;
+                this.Width = 370;
             }
         }
 

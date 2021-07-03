@@ -5,18 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjektLotnisko"
         mc:Ignorable="d"
-        Title="MainPage" Height="490.909" Width="707.954" Background="#FFEDEDED">
+        Title="Witamy na Lotnisku!" Height="502" Width="730" Background="#FFEDEDED" ResizeMode="NoResize">
     <Grid>
-        <Button x:Name="btFlightsAdminPanel" Content="Panel lotów" HorizontalAlignment="Left" Margin="430,272,0,0" VerticalAlignment="Top" Width="250" Height="77" FontSize="36" Click="Button_Click_3"/>
-        <Button x:Name="checkFightBtn" Content="Przeglądaj&#xA;loty" HorizontalAlignment="Left" Margin="39,51,0,0" VerticalAlignment="Top" Width="165" Height="93" FontSize="36" Click="Button_Click_5"/>
-        <Button x:Name="btAirportsAdminWindow" Content="Panel lotnisk" HorizontalAlignment="Left" Margin="430,104,0,0" VerticalAlignment="Top" Width="250" Height="76" FontSize="36" Click="Button_Click_4"/>
-        <Button x:Name="btAirlinesAdminPanel" Content="Pan. linii lotniczych" HorizontalAlignment="Left" Margin="430,191,0,0" VerticalAlignment="Top" Width="250" Height="76" FontSize="36" Click="Button_Click_2"/>
-        <Button Content="Moja rezerwacja&#xA;" HorizontalAlignment="Left" Margin="39,161,0,0" VerticalAlignment="Top" Width="353" Height="111" FontSize="36" Click="Button_Click_6"/>
-        <Button x:Name="editDataBtn" Content="Edytuj &#xD;&#xA;dane&#xA;" HorizontalAlignment="Left" Margin="227,51,0,0" VerticalAlignment="Top" Width="165" Height="93" FontSize="36" Click="Button_Click_1"/>
-        <Button x:Name="UserPanelButton" Content="Pan. uzytkownikow" HorizontalAlignment="Left" Margin="430,23,0,0" VerticalAlignment="Top" Width="250" Height="76" FontSize="36" Click="UserPanelButton_Click"/>
-        <Label x:Name="nameLabel" HorizontalAlignment="Left" Margin="139,23,0,0" VerticalAlignment="Top" Height="28" Width="323"/>
-        <Button x:Name="btTicketsAdminPanel" Content="Panel biletow" HorizontalAlignment="Left" Margin="430,354,0,0" VerticalAlignment="Top" Width="250" Height="77" FontSize="36" Click="btTicketsAdmin_Click"/>
-        <Button x:Name="btLogOut" Content="Wyloguj" HorizontalAlignment="Left" Margin="39,318,0,0" VerticalAlignment="Top" Width="195" Height="92" FontSize="36" Click="btLogOut_Click"/>
+        <Button x:Name="checkFightBtn" Content="Przeglądaj&#xA;loty" HorizontalAlignment="Left" Margin="39,69,0,0" VerticalAlignment="Top" Width="300" Height="120" FontSize="36" Click="Button_Click_5"/>
+        <Button Content="Moje bilety&#xA;" HorizontalAlignment="Left" Margin="39,194,0,0" VerticalAlignment="Top" Width="300" Height="120
+                " FontSize="36" Click="Button_Click_6"/>
+        <Button x:Name="editDataBtn" Content="Edytuj &#xD;&#xA;dane&#xA;" HorizontalAlignment="Left" Margin="197,358,0,0" VerticalAlignment="Top" Width="165" Height="93" FontSize="36" Click="Button_Click_1"/>
+        <Label x:Name="nameLabel" HorizontalAlignment="Left" Margin="39,7,0,0" VerticalAlignment="Top" Height="62" Width="323" FontSize="36" Content="Test"/>
+        <Button x:Name="btLogOut" Content="Wyloguj" HorizontalAlignment="Left" Margin="26,358,0,0" VerticalAlignment="Top" Width="157" Height="92" FontSize="36" Click="btLogOut_Click"/>
+        <GroupBox Header="Narzędzia administracyjne" HorizontalAlignment="Left" Height="443" Margin="439,10,0,0" VerticalAlignment="Top" Width="272" FontSize="16" BorderBrush="Black" BorderThickness="2">
+            <Grid>
+                <Button x:Name="btFlightsAdminPanel" Content="Loty" HorizontalAlignment="Left" Margin="5,251,-37,0" VerticalAlignment="Top" Width="250" Height="77" FontSize="36" Click="Button_Click_3"/>
+                <Button x:Name="btAirportsAdminWindow" Content="Lotniska" HorizontalAlignment="Left" Margin="5,83,-37,0" VerticalAlignment="Top" Width="250" Height="76" FontSize="36" Click="Button_Click_4"/>
+                <Button x:Name="btAirlinesAdminPanel" Content="Linie lotnicze" HorizontalAlignment="Left" Margin="5,170,-37,0" VerticalAlignment="Top" Width="250" Height="76" FontSize="36" Click="Button_Click_2"/>
+                <Button x:Name="UserPanelButton" Content="Konta " HorizontalAlignment="Left" Margin="5,2,-37,0" VerticalAlignment="Top" Width="250" Height="76" FontSize="36" Click="UserPanelButton_Click"/>
+                <Button x:Name="btTicketsAdminPanel" Content="Bilety" HorizontalAlignment="Left" Margin="5,333,-37,-11" VerticalAlignment="Top" Width="250" Height="77" FontSize="36" Click="btTicketsAdmin_Click"/>
+
+            </Grid>
+        </GroupBox>
 
     </Grid>
 </Window>

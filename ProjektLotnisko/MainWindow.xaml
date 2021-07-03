@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjektLotnisko"
         mc:Ignorable="d"
-        Title="MainWindow" Height="530" Width="575.354" Background="#FFE2E2E2">
+        Title="Logowanie" Height="530" Width="575.354" Background="#FFE2E2E2">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="333*"/>
