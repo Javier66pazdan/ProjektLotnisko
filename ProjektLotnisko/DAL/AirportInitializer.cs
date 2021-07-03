@@ -15,7 +15,7 @@ namespace ProjektLotnisko.DAL
         {
             var users = new List<User>
             {
-                new User{Email="admin@gmail.com",Password="admin",FirstName="admin",LastName="admin",
+                new User{Email="admin@gmail.com",Password=PasswordHasher.Hash("123"),FirstName="admin",LastName="admin",
                     SignUpDate=new DateTime(2000,5,1,8,30,52), AdressStreet="adminowa",AdressNumber="123"
                     ,Country="Poland",City="Adminowo", AccountType= "admin"},
                 new User{Email="a@wp.pl",Password=PasswordHasher.Hash("123"),FirstName="Marek",LastName="Wojecki",

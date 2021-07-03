@@ -12,14 +12,22 @@ namespace ProjektLotnisko.DbClasses
         public int UserId { get; set; }
         [StringLength(100)]
         public string Email { get; set; }
+        [StringLength(255)]
         public string Password { get; set; }
+        [StringLength(100)]
         public string FirstName { get; set; }
+        [StringLength(100)]
         public string LastName { get; set; }
         public DateTime SignUpDate { get; set; }
+        [StringLength(100)]
         public string AdressStreet { get; set; }
+        [StringLength(100)]
         public string AdressNumber { get; set; }
+        [StringLength(100)]
         public string City { get; set; }
+        [StringLength(100)]
         public string Country { get; set; }
+        [StringLength(100)]
         public string AccountType { get; set; }
     }
 }
