@@ -24,49 +24,43 @@ namespace ProjektLotnisko
 
     public partial class MainWindow : Window
     {
-        AirportManagementContext db;
-        public static string email;
-        public static string accountType;
+        DatabaseManager db;
         public static User zalogowanyUser;
 
         public MainWindow()
         {
             InitializeComponent();
-            db = new AirportManagementContext();
+            db = new DatabaseManager();
         }
         private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
             //OMIJANIE HACKOWANIE LOGOWANIE
             if (emailField.Text == "admin")
             {
-                User emailUser = db.Users.First(o => o.Email == "admin@gmail.com");
+                User emailUser = db.findUserWithEmail("admin@gmail.com");
                 zalogowanyUser = emailUser;
-                accountType = "admin";
                 MainPage noweOkno = new MainPage();
                 this.Close();
                 noweOkno.ShowDialog();
             }
-            else
+            else if (db.isUserInDatabase(emailField.Text))
             {
-
-
-                User emailUser = db.Users.First(o => o.Email == emailField.Text);
-                zalogowanyUser = emailUser;
-
-                if (db.Users.Any(o => o.Email == emailField.Text) 
-                    && PasswordHasher.Verify(passwordBoxLogin.Password, emailUser.Password))
+                User emailUser = db.findUserWithEmail(emailField.Text);
+                if (PasswordHasher.Verify(passwordBoxLogin.Password, emailUser.Password))
                 {
-                    accountType = emailUser.AccountType;
-                    email = emailField.Text;
+                    zalogowanyUser = emailUser;
                     MainPage noweOkno = new MainPage();
                     this.Close();
                     noweOkno.ShowDialog();
                 }
                 else
                 {
-                    MessageBox.Show("ZLE DANE");
+                    MessageBox.Show("Złe hasło");
                 }
-
+            }
+            else
+            {
+                MessageBox.Show("Złe dane");
             }
         }
 
@@ -76,9 +70,6 @@ namespace ProjektLotnisko
             this.Close();
             register.ShowDialog();
         }
-
-
-        // 
         private void emailField_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             if(emailField.Text == "EMAIL")
@@ -89,11 +80,6 @@ namespace ProjektLotnisko
         {
             if(emailField.Text == "")  
                 emailField.Text = "EMAIL";
-
-        }
-
-        private void passwordField_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
 
         }
     }

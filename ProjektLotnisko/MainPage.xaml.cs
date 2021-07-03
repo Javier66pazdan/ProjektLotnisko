@@ -27,24 +27,13 @@ namespace ProjektLotnisko
         public MainPage()
         {
             InitializeComponent();
-            nameLabel.Content = "Welcome back, " + MainWindow.email;
-            if (MainWindow.accountType!="admin")
+            nameLabel.Content = "Welcome back, " + MainWindow.zalogowanyUser.FirstName+ " "+MainWindow.zalogowanyUser.LastName;
+            if (MainWindow.zalogowanyUser.AccountType!="admin")
             {
-                UserPanelButton.Visibility = Visibility.Hidden;
-                btAirlinesAdminPanel.Visibility = Visibility.Hidden;
-                btAirportsAdminWindow.Visibility = Visibility.Hidden;
-                btFlightsAdminPanel.Visibility = Visibility.Hidden;
-                btTicketsAdminPanel.Visibility = Visibility.Hidden;
+                gbAdminBurrons.Visibility = Visibility.Hidden;
                 this.Width = 370;
             }
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-            //administratorPanel.Visibility = Visibility.Hidden;
-        }
-
         private void UserPanelButton_Click(object sender, RoutedEventArgs e)
         {
             UsersWindowAdmin usersWindowAdmin = new UsersWindowAdmin();

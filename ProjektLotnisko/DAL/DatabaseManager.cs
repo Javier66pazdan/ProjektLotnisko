@@ -39,8 +39,8 @@ namespace ProjektLotnisko.DAL
         public bool isEmailAvailable (string email)
         {
             if (db.Users.Any(o => o.Email == email))
-                return false;
-            else return true;
+            { return false; }
+            return true;
         }
         public List<Airline> airlineList()
         {
@@ -126,6 +126,27 @@ namespace ProjektLotnisko.DAL
         {
             var tickets = (from p in db.Tickets where p.User.UserId == user.UserId select p).ToList();
             return tickets;
+        }
+
+        public User findUserWithEmail(string email)
+        {
+            User emailUser = db.Users.Single(o => o.Email == email);
+            return emailUser;
+        }
+
+        public bool isUserInDatabase (string email)
+        {
+            return db.Users.Any(o => o.Email == email);
+        }
+        public User findUserWithId(int id)
+        {
+            User emailUser = db.Users.Single(o => o.UserId == id);
+            return emailUser;
+        }
+
+        public void saveChanges()
+        {
+            db.SaveChanges();
         }
     }
 }

@@ -22,22 +22,16 @@ namespace ProjektLotnisko.UsersWindows
     /// </summary>
     public partial class editData : Window
     {
-        AirportManagementContext db;
+        DatabaseManager db;
         User wybranyUser;
-        ObservableCollection<User> listaUserow;
+        String emailBefore;
 
         public editData()
         {
             InitializeComponent();
-            db = new AirportManagementContext();
-            var users = (from p in db.Users select p).ToList();
-            listaUserow = new ObservableCollection<User>(users);
-
-            for (int i = 0; i < listaUserow.Count; i++)
-            {
-                if (listaUserow[i].Email == MainWindow.email)
-                    wybranyUser = listaUserow[i];
-            }
+            db = new DatabaseManager();
+            wybranyUser = db.findUserWithEmail(MainWindow.zalogowanyUser.Email);
+            emailBefore = wybranyUser.Email;
             this.DataContext = wybranyUser;
         }
 
@@ -48,9 +42,20 @@ namespace ProjektLotnisko.UsersWindows
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            db.SaveChanges();
-            MessageBox.Show("Pomyślnie zmieniono dane!");
-            this.Close();
+            if (passBox1.Password==passBox2.Password)
+            {
+                wybranyUser.Password = PasswordHasher.Hash(passBox1.Password);
+            }
+            if (emailField.Text!=emailBefore && !db.isEmailAvailable(emailField.Text))
+            {
+                MessageBox.Show("Email jest zajęty", "Błąd");
+            }
+            else
+            {
+                db.saveChanges();
+                MessageBox.Show("Pomyślnie zmieniono dane!");
+                this.Close();
+            }
         }
     }
 }

@@ -8,8 +8,7 @@
         Title="Edycja danych" Height="361.314" Width="321.681">
     <Grid>
         <TextBox x:Name="emailField" HorizontalAlignment="Left" Height="23" Margin="125,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" Text="{Binding Email, Mode=TwoWay}"/>
-        <TextBox x:Name="passwordField" HorizontalAlignment="Left" Height="23" Margin="125,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" Text="{Binding Password, Mode=TwoWay}"/>
-        <TextBox x:Name="passwordField2" HorizontalAlignment="Left" Height="23" Margin="125,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" Text="{Binding Password, Mode=TwoWay}"/>
+
         <TextBox x:Name="firstNameField" HorizontalAlignment="Left" Height="23" Margin="125,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" Text="{Binding FirstName, Mode=TwoWay}"/>
         <TextBox x:Name="lastNameField" HorizontalAlignment="Left" Height="23" Margin="125,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" Text="{Binding LastName, Mode=TwoWay}"/>
         <TextBox x:Name="streetField" HorizontalAlignment="Left" Height="23" Margin="125,158,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" Text="{Binding AdressStreet, Mode=TwoWay}"/>
@@ -17,8 +16,8 @@
         <TextBox x:Name="cityField" HorizontalAlignment="Left" Height="23" Margin="125,214,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" Text="{Binding City, Mode=TwoWay}"/>
         <TextBox x:Name="countryField" HorizontalAlignment="Left" Height="23" Margin="125,242,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" Text="{Binding Country, Mode=TwoWay}"/>
         <Label Content="Email" HorizontalAlignment="Left" Margin="23,17,0,0" VerticalAlignment="Top" Width="52"/>
-        <Label Content="Haslo" HorizontalAlignment="Left" Margin="23,46,0,0" VerticalAlignment="Top" Width="79"/>
-        <Label Content="Powtorz haslo" HorizontalAlignment="Left" Margin="23,74,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.664,1.931" Width="97"/>
+        <Label Content="Nowe hasło" HorizontalAlignment="Left" Margin="23,46,0,0" VerticalAlignment="Top" Width="79"/>
+        <Label Content="Powtórz hasło" HorizontalAlignment="Left" Margin="23,74,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.664,1.931" Width="97"/>
         <Label Content="Imie" HorizontalAlignment="Left" Margin="23,102,0,0" VerticalAlignment="Top" Width="81"/>
         <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="23,130,0,0" VerticalAlignment="Top" Width="72"/>
         <Label Content="Ulica" HorizontalAlignment="Left" Margin="23,158,0,0" VerticalAlignment="Top" Width="47"/>
@@ -27,5 +26,7 @@
         <Label Content="Kraj" HorizontalAlignment="Left" Margin="23,242,0,0" VerticalAlignment="Top" Width="40"/>
         <Button x:Name="editBtn" Content="Zapisz" HorizontalAlignment="Left" Margin="48,278,0,0" VerticalAlignment="Top" Width="96" Height="34" Click="Button_Click_1"/>
         <Button Content="Wyjdz" HorizontalAlignment="Left" Margin="177,278,0,0" VerticalAlignment="Top" Width="96" Height="34" Click="Button_Click"/>
+        <PasswordBox x:Name="passBox1" HorizontalAlignment="Left" Margin="125,46,0,0" VerticalAlignment="Top" Width="159" Height="23"/>
+        <PasswordBox x:Name="passBox2" HorizontalAlignment="Left" Margin="125,74,0,0" VerticalAlignment="Top" Width="159" Height="23"/>
     </Grid>
 </Window>

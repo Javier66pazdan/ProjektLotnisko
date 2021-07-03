@@ -30,12 +30,6 @@ namespace ProjektLotnisko
             InitializeComponent();
             walidacja = new DAL.Validation();
             db = new DatabaseManager();
-            //db = new AirportManagementContext();
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
 
         private void returnBtn_Click(object sender, RoutedEventArgs e)
@@ -45,52 +39,12 @@ namespace ProjektLotnisko
             loginWind.Show();
         }
 
-        /*protected void register()
-        {
-            User nowy = new User()
-            {
-                Email = emailField.Text,
-                Password = passwordField1.Text,
-                FirstName = nameField.Text,
-                LastName = surnameField.Text,
-                SignUpDate = DateTime.Now,
-                AdressStreet = adressStreetField.Text,
-                AdressNumber = adressNumberField.Text,
-                Country = "Poland"
-            };
-
-            db.Users.Add(nowy);
-            db.SaveChanges();
-            MessageBox.Show("Pomyślnie utworzono konto");
-        }
-        */
         private void registerBtn_Click(object sender, RoutedEventArgs e)
         {
-            /*if (nameField.Text == "" || surnameField.Text == "" || emailField.Text == "" ||
-                passwordField.Text == "" || passwordField1.Text == "" || adressStreetField.Text == "" ||
-                adressNumberField.Text == "")
-            {
-                MessageBox.Show("Pola nie mogą być puste!");
-            }
-            else if (nameField.Text == "Imie" || surnameField.Text == "Nazwisko" || emailField.Text == "Email" ||
-              passwordField.Text == "Haslo" || passwordField1.Text == "Powtorz haslo" || adressStreetField.Text == "Ulica" ||
-              adressNumberField.Text == "numer domu")
-            {
-                MessageBox.Show("Wprowadz prawidlowe dane");
-            }
-            else if (passwordField.Text != passwordField1.Text)
-            {
-                MessageBox.Show("Podaj takie same hasła");
-            }
-            else
-            {*/
-            //registerPage objekt2 = new registerPage();
-            //objekt2.register();
-            //}
             User nowy = new User()
             {
                 Email = emailField.Text,
-                Password = passwordField1.Text,
+                Password = PasswordHasher.Hash(passBox1.Password),
                 FirstName = nameField.Text,
                 LastName = surnameField.Text,
                 SignUpDate = DateTime.Now,
@@ -100,7 +54,17 @@ namespace ProjektLotnisko
                 Country = countryField.Text,
                 AccountType = "normal",
             };
-            if (passwordField.Text != passwordField1.Text)
+            if (nameField.Text == "" || surnameField.Text == "" || emailField.Text == "" ||
+                adressStreetField.Text == "" || adressNumberField.Text == "")
+            {
+                MessageBox.Show("Pola nie mogą być puste!");
+            }
+            else if (nameField.Text == "Imie" || surnameField.Text == "Nazwisko" || emailField.Text == "Email" ||
+              adressStreetField.Text == "Ulica" || adressNumberField.Text == "numer domu")
+            {
+                MessageBox.Show("Wprowadz prawidlowe dane");
+            }
+            else if (passBox1.Password != passBox2.Password)
             {
                 MessageBox.Show("Podaj takie same hasła");
             }
@@ -118,7 +82,6 @@ namespace ProjektLotnisko
             }
             else
             {
-                nowy.Password = PasswordHasher.Hash(passwordField.Text);
                 db.addUser(nowy);
                 MessageBox.Show("Konto utworzono", "Sukces");
                 MainWindow logowanie = new MainWindow();
@@ -163,29 +126,6 @@ namespace ProjektLotnisko
                 emailField.Text = "Email";
         }
 
-        private void passwordField1_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (passwordField1.Text == "")
-                passwordField1.Text = "Haslo";
-        }
-
-        private void passwordField1_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (passwordField1.Text == "Haslo")
-                passwordField1.Clear();
-        }
-
-        private void passwordField_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (passwordField.Text == "Powtorz haslo")
-                passwordField.Clear();
-        }
-
-        private void passwordField_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (passwordField.Text == "")
-                passwordField.Text = "Powtorz haslo";
-        }
 
         private void adressStreetField_LostFocus(object sender, RoutedEventArgs e)
         {
