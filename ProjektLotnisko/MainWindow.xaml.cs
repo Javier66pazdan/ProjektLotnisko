@@ -34,16 +34,7 @@ namespace ProjektLotnisko
         }
         private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
-            //OMIJANIE HACKOWANIE LOGOWANIE
-            if (emailField.Text == "admin")
-            {
-                User emailUser = db.findUserWithEmail("admin@gmail.com");
-                zalogowanyUser = emailUser;
-                MainPage noweOkno = new MainPage();
-                this.Close();
-                noweOkno.ShowDialog();
-            }
-            else if (db.isUserInDatabase(emailField.Text))
+            if (db.isUserInDatabase(emailField.Text))
             {
                 User emailUser = db.findUserWithEmail(emailField.Text);
                 if (PasswordHasher.Verify(passwordBoxLogin.Password, emailUser.Password))

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjektLotnisko.UsersWindows"
         mc:Ignorable="d"
-        Title="Edycja danych" Height="361.314" Width="321.681">
+        Title="Edycja danych" Height="361.314" Width="321.681" ResizeMode="NoResize">
     <Grid>
         <TextBox x:Name="emailField" HorizontalAlignment="Left" Height="23" Margin="125,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" Text="{Binding Email, Mode=TwoWay}"/>
 

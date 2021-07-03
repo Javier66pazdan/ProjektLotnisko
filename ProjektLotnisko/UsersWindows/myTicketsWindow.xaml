@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjektLotnisko.UsersWindows"
         mc:Ignorable="d"
-        Title="Moje bilety" Height="344" Width="676">
+        Title="Moje bilety" Height="344" Width="676" ResizeMode="NoResize">
     <Grid>
         <ListView x:Name="TicketList1" HorizontalAlignment="Left" Height="289" Margin="10,10,0,0" VerticalAlignment="Top" Width="565" SelectionChanged="TicketList1_SelectionChanged">
             <ListView.View>

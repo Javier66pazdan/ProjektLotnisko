@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjektLotnisko.UsersWindows"
         mc:Ignorable="d"
-        Title="Lista lotów" Height="422.4" Width="898.857">
+        Title="Lista lotów" Height="438.857" Width="912.571" ResizeMode="NoResize">
     <Grid>
         <ListView x:Name="FlightListView" HorizontalAlignment="Left" Height="314" Margin="296,10,0,0" VerticalAlignment="Top" Width="585" SelectionChanged="FlightListView_SelectionChanged">
             <ListView.View>

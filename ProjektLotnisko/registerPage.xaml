@@ -5,20 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjektLotnisko"
         mc:Ignorable="d"
-        Title="registerPage" Height="671.006" Width="575.354" Background="#FFF9F6F6" HorizontalAlignment="Center">
+        Title="registerPage" Height="720.852" Width="575.354" Background="#FFF9F6F6" HorizontalAlignment="Center" ResizeMode="NoResize">
     <Grid>
         <Label x:Name="registerLabel" Content="Rejestracja" HorizontalAlignment="Center" Margin="0,26,0,0" VerticalAlignment="Top" Height="78" Width="189" FontSize="36"/>
         <TextBox x:Name="nameField" HorizontalAlignment="Left" Height="63" Margin="36,117,0,0" TextWrapping="Wrap" Text="Imie" VerticalAlignment="Top" Width="240" FontSize="36" MaxLength="20" PreviewMouseDown="nameField_PreviewMouseDown" LostFocus="nameField_LostFocus"/>
         <TextBox x:Name="surnameField" HorizontalAlignment="Right" Height="63" Margin="0,117,26.8,0" TextWrapping="Wrap" Text="Nazwisko" VerticalAlignment="Top" Width="240" FontSize="36" MaxLength="20" LostFocus="surnameField_LostFocus" PreviewMouseDown="surnameField_PreviewMouseDown"/>
         <TextBox x:Name="emailField" HorizontalAlignment="Left" Height="63" Margin="36,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="506" FontSize="36" Text="Email" MaxLength="100" PreviewMouseDown="emailField_PreviewMouseDown" LostFocus="emailField_LostFocus"/>
-        <TextBox x:Name="adressStreetField" HorizontalAlignment="Left" Height="63" Margin="36,381,0,0" TextWrapping="Wrap" Text="Ulica" VerticalAlignment="Top" Width="240" FontSize="36" MaxLength="50" LostFocus="adressStreetField_LostFocus" PreviewMouseDown="adressStreetField_PreviewMouseDown"/>
-        <TextBox x:Name="adressNumberField" HorizontalAlignment="Left" Height="63" Margin="302,381,0,0" TextWrapping="Wrap" Text="numer domu" VerticalAlignment="Top" Width="240" FontSize="36" MaxLength="20" PreviewMouseDown="adressNumberField_PreviewMouseDown" LostFocus="adressNumberField_LostFocus"/>
-        <Button x:Name="registerBtn" Content="Zarejestruj" HorizontalAlignment="Left" Margin="34,552,0,0" VerticalAlignment="Top" Width="240" Height="65" FontSize="36" Click="registerBtn_Click"/>
-        <Button x:Name="returnBtn" Content="Wstecz" HorizontalAlignment="Left" Margin="300,552,0,0" VerticalAlignment="Top" Width="240" Height="65" FontSize="36" Click="returnBtn_Click"/>
-        <TextBox x:Name="cityField" HorizontalAlignment="Left" Height="63" Margin="36,468,0,0" TextWrapping="Wrap" Text="Miasto" VerticalAlignment="Top" Width="240" FontSize="36" MaxLength="50" LostFocus="cityField_LostFocus" PreviewMouseDown="cityField_PreviewMouseDown"/>
-        <TextBox x:Name="countryField" HorizontalAlignment="Left" Height="63" Margin="300,468,0,0" TextWrapping="Wrap" Text="Kraj" VerticalAlignment="Top" Width="240" FontSize="36" MaxLength="50" PreviewMouseDown="countryField_PreviewMouseDown" LostFocus="countryField_LostFocus"/>
-        <PasswordBox x:Name="passBox1" HorizontalAlignment="Left" Margin="36,288,0,0" VerticalAlignment="Top" Height="63" Width="238" FontSize="36"/>
-        <PasswordBox x:Name="passBox2" HorizontalAlignment="Left" Margin="304,288,0,0" VerticalAlignment="Top" Height="63" Width="238" FontSize="36"/>
+        <TextBox x:Name="adressStreetField" HorizontalAlignment="Left" Height="63" Margin="32,427,0,0" TextWrapping="Wrap" Text="Ulica" VerticalAlignment="Top" Width="240" FontSize="36" MaxLength="50" LostFocus="adressStreetField_LostFocus" PreviewMouseDown="adressStreetField_PreviewMouseDown"/>
+        <TextBox x:Name="adressNumberField" HorizontalAlignment="Left" Height="63" Margin="298,427,0,0" TextWrapping="Wrap" Text="numer domu" VerticalAlignment="Top" Width="240" FontSize="36" MaxLength="20" PreviewMouseDown="adressNumberField_PreviewMouseDown" LostFocus="adressNumberField_LostFocus"/>
+        <Button x:Name="registerBtn" Content="Zarejestruj" HorizontalAlignment="Left" Margin="30,598,0,0" VerticalAlignment="Top" Width="240" Height="65" FontSize="36" Click="registerBtn_Click"/>
+        <Button x:Name="returnBtn" Content="Wstecz" HorizontalAlignment="Left" Margin="296,598,0,0" VerticalAlignment="Top" Width="240" Height="65" FontSize="36" Click="returnBtn_Click"/>
+        <TextBox x:Name="cityField" HorizontalAlignment="Left" Height="63" Margin="32,514,0,0" TextWrapping="Wrap" Text="Miasto" VerticalAlignment="Top" Width="240" FontSize="36" MaxLength="50" LostFocus="cityField_LostFocus" PreviewMouseDown="cityField_PreviewMouseDown"/>
+        <TextBox x:Name="countryField" HorizontalAlignment="Left" Height="63" Margin="296,514,0,0" TextWrapping="Wrap" Text="Kraj" VerticalAlignment="Top" Width="240" FontSize="36" MaxLength="50" PreviewMouseDown="countryField_PreviewMouseDown" LostFocus="countryField_LostFocus"/>
+        <PasswordBox x:Name="passBox1" HorizontalAlignment="Left" Margin="32,334,0,0" VerticalAlignment="Top" Height="63" Width="238" FontSize="36"/>
+        <PasswordBox x:Name="passBox2" HorizontalAlignment="Left" Margin="300,334,0,0" VerticalAlignment="Top" Height="63" Width="238" FontSize="36"/>
+        <Label Content="Hasło:" HorizontalAlignment="Left" Margin="32,287,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label Content="Powtórz hasło:" HorizontalAlignment="Left" Margin="300,287,0,0" VerticalAlignment="Top" FontSize="24"/>
 
     </Grid>
 </Window>
