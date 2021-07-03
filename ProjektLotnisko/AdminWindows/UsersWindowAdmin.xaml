@@ -33,14 +33,14 @@
         <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="23" Margin="10,415,0,0" TextWrapping="Wrap" Text="Wpisz szukaną wartość" VerticalAlignment="Top" Width="392" RenderTransformOrigin="0.367,0.217"/>
         <GroupBox Header="Konto" HorizontalAlignment="Left" Height="303" Margin="695,10,0,0" VerticalAlignment="Top" Width="230" BorderThickness="1" BorderBrush="Black">
             <Grid Margin="0,0,0,0">
-                <TextBox x:Name="emailField" HorizontalAlignment="Left" Height="23" Margin="88,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Email, Mode=OneWay}"/>
-                <TextBox x:Name="passwordField" HorizontalAlignment="Left" Height="23" Margin="88,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Password, Mode=OneWay}"/>
-                <TextBox x:Name="firstNameField" HorizontalAlignment="Left" Height="23" Margin="88,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding FirstName, Mode=OneWay}"/>
-                <TextBox x:Name="lastNameField" HorizontalAlignment="Left" Height="23" Margin="88,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding LastName, Mode=OneWay}"/>
-                <TextBox x:Name="streetField" HorizontalAlignment="Left" Height="23" Margin="88,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding AdressStreet, Mode=OneWay}"/>
-                <TextBox x:Name="numberField" HorizontalAlignment="Left" Height="23" Margin="88,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding AdressNumber, Mode=OneWay}"/>
-                <TextBox x:Name="cityField" HorizontalAlignment="Left" Height="23" Margin="88,174,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding City, Mode=OneWay}"/>
-                <TextBox x:Name="countryField" HorizontalAlignment="Left" Height="23" Margin="88,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Country, Mode=OneWay}"/>
+                <TextBox x:Name="emailField" HorizontalAlignment="Left" Height="23" Margin="88,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Email, Mode=OneWay}" TabIndex="1"/>
+                <TextBox x:Name="passwordField" HorizontalAlignment="Left" Height="23" Margin="88,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Password, Mode=OneWay}" TabIndex="2"/>
+                <TextBox x:Name="firstNameField" HorizontalAlignment="Left" Height="23" Margin="88,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding FirstName, Mode=OneWay}" TabIndex="3"/>
+                <TextBox x:Name="lastNameField" HorizontalAlignment="Left" Height="23" Margin="88,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding LastName, Mode=OneWay}" TabIndex="4"/>
+                <TextBox x:Name="streetField" HorizontalAlignment="Left" Height="23" Margin="88,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding AdressStreet, Mode=OneWay}" TabIndex="5"/>
+                <TextBox x:Name="numberField" HorizontalAlignment="Left" Height="23" Margin="88,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding AdressNumber, Mode=OneWay}" TabIndex="6"/>
+                <TextBox x:Name="cityField" HorizontalAlignment="Left" Height="23" Margin="88,174,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding City, Mode=OneWay}" TabIndex="7"/>
+                <TextBox x:Name="countryField" HorizontalAlignment="Left" Height="23" Margin="88,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Country, Mode=OneWay}" TabIndex="8"/>
                 <Label Content="Email" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top"/>
                 <Label Content="Password" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top"/>
                 <Label Content="Imię" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.664,1.931"/>
@@ -49,7 +49,7 @@
                 <Label Content="Nr" HorizontalAlignment="Left" Margin="10,145,0,0" VerticalAlignment="Top"/>
                 <Label Content="Miasto" HorizontalAlignment="Left" Margin="10,176,0,0" VerticalAlignment="Top"/>
                 <Label Content="Kraj" HorizontalAlignment="Left" Margin="10,202,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="accountTypeField" HorizontalAlignment="Left" Height="23" Margin="88,233,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Country, Mode=OneWay}"/>
+                <TextBox x:Name="accountTypeField" HorizontalAlignment="Left" Height="23" Margin="88,233,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Country, Mode=OneWay}" TabIndex="9"/>
                 <Label Content="Typ Konta:" HorizontalAlignment="Left" Margin="10,232,0,0" VerticalAlignment="Top"/>
             </Grid>
         </GroupBox>

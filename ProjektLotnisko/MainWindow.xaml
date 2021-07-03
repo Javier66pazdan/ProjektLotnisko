@@ -8,10 +8,10 @@
         Title="Logowanie" Height="530" Width="575.354" Background="#FFE2E2E2" ResizeMode="NoResize">
     <Grid>
         <Label x:Name="loginLabel" Content="Logowanie" HorizontalAlignment="Left" Margin="161,10,0,0" VerticalAlignment="Top" Height="75" Width="258" FontSize="48"/>
-        <TextBox x:Name="emailField" HorizontalAlignment="Center" Height="63" Margin="217,108,99,0" VerticalAlignment="Top" Width="253" FontSize="36" PreviewMouseDown="emailField_PreviewMouseDown" LostFocus="emailField_LostFocus"/>
-        <Button x:Name="loginBtn" Content="Zaloguj" HorizontalAlignment="Center" Margin="189,291,189.8,0" VerticalAlignment="Top" Width="190" Height="75" FontSize="36" Click="loginBtn_Click" Grid.RowSpan="2"/>
+        <TextBox x:Name="emailField" HorizontalAlignment="Center" Height="63" Margin="217,108,99,0" VerticalAlignment="Top" Width="253" FontSize="36" PreviewMouseDown="emailField_PreviewMouseDown" LostFocus="emailField_LostFocus" TabIndex="1"/>
+        <Button x:Name="loginBtn" Content="Zaloguj" HorizontalAlignment="Center" Margin="189,291,189.8,0" VerticalAlignment="Top" Width="190" Height="75" FontSize="36" Click="loginBtn_Click" Grid.RowSpan="2" IsDefault="True"/>
         <Button x:Name="toRegisterBtn" Content="Nie masz konta? Utwórz" HorizontalAlignment="Left" Margin="112,388,0,0" VerticalAlignment="Top" Width="349" Height="67" FontSize="24" Click="Button_Click"/>
-        <PasswordBox x:Name="passwordBoxLogin" HorizontalAlignment="Left" Margin="216,189,0,0" Height="63" Width="253" VerticalAlignment="Top" FontSize="36"/>
+        <PasswordBox x:Name="passwordBoxLogin" HorizontalAlignment="Left" Margin="216,189,0,0" Height="63" Width="253" VerticalAlignment="Top" FontSize="36" TabIndex="2"/>
         <Label Content="Email:" HorizontalAlignment="Left" Margin="90,108,0,0" VerticalAlignment="Top" FontSize="36"/>
         <Label Content="Hasło:" HorizontalAlignment="Left" Margin="90,189,0,0" VerticalAlignment="Top" FontSize="36"/>
 

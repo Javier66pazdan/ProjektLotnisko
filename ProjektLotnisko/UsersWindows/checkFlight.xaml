@@ -23,7 +23,7 @@
             </ListView.View>
         </ListView>
         <Button x:Name="buyTicketBtn" Content="Kup bilet" HorizontalAlignment="Left" Margin="764,329,0,0" VerticalAlignment="Top" Width="117" Height="56" FontSize="24" Click="buyTicketBtn_Click"/>
-        <Button x:Name="btSearch" Content="Wyszukaj" HorizontalAlignment="Left" Margin="73,250,0,0" VerticalAlignment="Top" Width="75" Click="btSearch_Click"/>
+        <Button x:Name="btSearch" Content="Wyszukaj" HorizontalAlignment="Left" Margin="73,250,0,0" VerticalAlignment="Top" Width="75" Click="btSearch_Click" IsDefault="True"/>
         <Button x:Name="btReset" Content="Reset" HorizontalAlignment="Left" Margin="153,250,0,0" VerticalAlignment="Top" Width="75" Click="btReset_Click"/>
         <GroupBox Header="Wyszukaj" HorizontalAlignment="Left" Height="221" Margin="10,10,0,0" VerticalAlignment="Top" Width="281" BorderBrush="Black" BorderThickness="1">
             <Grid>

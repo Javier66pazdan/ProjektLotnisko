@@ -24,7 +24,7 @@
         <Label Content="Nr" HorizontalAlignment="Left" Margin="23,186,0,0" VerticalAlignment="Top" Width="30"/>
         <Label Content="Miasto" HorizontalAlignment="Left" Margin="23,214,0,0" VerticalAlignment="Top" Width="62"/>
         <Label Content="Kraj" HorizontalAlignment="Left" Margin="23,242,0,0" VerticalAlignment="Top" Width="40"/>
-        <Button x:Name="editBtn" Content="Zapisz" HorizontalAlignment="Left" Margin="48,278,0,0" VerticalAlignment="Top" Width="96" Height="34" Click="Button_Click_1"/>
+        <Button x:Name="editBtn" Content="Zapisz" HorizontalAlignment="Left" Margin="48,278,0,0" VerticalAlignment="Top" Width="96" Height="34" Click="Button_Click_1" IsDefault="True"/>
         <Button Content="Wyjdz" HorizontalAlignment="Left" Margin="177,278,0,0" VerticalAlignment="Top" Width="96" Height="34" Click="Button_Click"/>
         <PasswordBox x:Name="passBox1" HorizontalAlignment="Left" Margin="125,46,0,0" VerticalAlignment="Top" Width="159" Height="23"/>
         <PasswordBox x:Name="passBox2" HorizontalAlignment="Left" Margin="125,74,0,0" VerticalAlignment="Top" Width="159" Height="23"/>

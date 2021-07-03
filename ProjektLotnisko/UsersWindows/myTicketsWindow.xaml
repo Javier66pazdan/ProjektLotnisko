@@ -21,7 +21,7 @@
             </ListView.View>
         </ListView>
         <Button x:Name="btCancelTicket" Content="Anuluj bilet" HorizontalAlignment="Left" Margin="583,58,0,0" VerticalAlignment="Top" Width="75" Height="48" Click="btCancelTicket_Click"/>
-        <Button x:Name="btPayTicket" Content="Opłać bilet" HorizontalAlignment="Left" Margin="583,5,0,0" VerticalAlignment="Top" Width="75" Height="48" Click="btPayTicket_Click"/>
+        <Button x:Name="btPayTicket" Content="Opłać bilet" HorizontalAlignment="Left" Margin="583,5,0,0" VerticalAlignment="Top" Width="75" Height="48" Click="btPayTicket_Click" IsDefault="True"/>
 
     </Grid>
 </Window>

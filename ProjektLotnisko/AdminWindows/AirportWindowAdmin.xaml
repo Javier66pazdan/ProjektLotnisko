@@ -24,11 +24,11 @@
         <Button x:Name="buttonEditUser" Content="Zapisz" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="775,187,0,0" Click="buttonEditUser_Click"/>
         <GroupBox Header="Lotnisko" HorizontalAlignment="Left" Height="172" Margin="695,10,0,0" VerticalAlignment="Top" Width="224" BorderBrush="Black" BorderThickness="1">
             <Grid>
-                <TextBox x:Name="nameField" HorizontalAlignment="Left" Height="23" Margin="88,8,-120,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Name, Mode=OneWay}"/>
-                <TextBox x:Name="codeField" HorizontalAlignment="Left" Height="23" Margin="88,36,-120,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Code, Mode=OneWay}"/>
-                <TextBox x:Name="cityField" HorizontalAlignment="Left" Height="23" Margin="88,64,-120,-10" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding City, Mode=OneWay}"/>
-                <TextBox x:Name="provinceField" HorizontalAlignment="Left" Height="23" Margin="88,92,-120,-38" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Province, Mode=OneWay}"/>
-                <TextBox x:Name="countryField" HorizontalAlignment="Left" Height="23" Margin="88,120,-120,-66" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding CountryAirport, Mode=OneWay}"/>
+                <TextBox x:Name="nameField" HorizontalAlignment="Left" Height="23" Margin="88,8,-120,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Name, Mode=OneWay}" TabIndex="1"/>
+                <TextBox x:Name="codeField" HorizontalAlignment="Left" Height="23" Margin="88,36,-120,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Code, Mode=OneWay}" TabIndex="2"/>
+                <TextBox x:Name="cityField" HorizontalAlignment="Left" Height="23" Margin="88,64,-120,-10" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding City, Mode=OneWay}" TabIndex="3"/>
+                <TextBox x:Name="provinceField" HorizontalAlignment="Left" Height="23" Margin="88,92,-120,-38" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Province, Mode=OneWay}" TabIndex="4"/>
+                <TextBox x:Name="countryField" HorizontalAlignment="Left" Height="23" Margin="88,120,-120,-66" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding CountryAirport, Mode=OneWay}" TabIndex="5"/>
                 <Label Content="Nazwa" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top"/>
                 <Label Content="Kod" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
                 <Label Content="Miasto" HorizontalAlignment="Left" Margin="10,64,0,-13" VerticalAlignment="Top" RenderTransformOrigin="0.664,1.931"/>
