@@ -22,7 +22,7 @@
         <Button x:Name="buttonAddUser" Content="Dodaj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="695,187,0,0" Click="buttonAddUser_Click"/>
         <Button x:Name="buttonRemoveUser" Content="Usun" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="855,187,0,0" Click="buttonRemoveUser_Click"/>
         <Button x:Name="buttonEditUser" Content="Zapisz" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="775,187,0,0" Click="buttonEditUser_Click"/>
-        <GroupBox Header="Lotnisko" HorizontalAlignment="Left" Height="172" Margin="695,10,0,0" VerticalAlignment="Top" Width="224" BorderBrush="Black" BorderThickness="2">
+        <GroupBox Header="Lotnisko" HorizontalAlignment="Left" Height="172" Margin="695,10,0,0" VerticalAlignment="Top" Width="224" BorderBrush="Black" BorderThickness="1">
             <Grid>
                 <TextBox x:Name="nameField" HorizontalAlignment="Left" Height="23" Margin="88,8,-120,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Name, Mode=OneWay}"/>
                 <TextBox x:Name="codeField" HorizontalAlignment="Left" Height="23" Margin="88,36,-120,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Code, Mode=OneWay}"/>

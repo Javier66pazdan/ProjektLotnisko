@@ -39,11 +39,6 @@ namespace ProjektLotnisko.AdminWindows
             cbSearch.Items.Add("Miesiąc przylotu (liczba)");
             cbSearch.SelectedItem = null;
 
-            minutesArrivalTimeField.Text = "00";
-            minutesDepartureTimeField.Text = "00";
-            hoursArrivalTimeField.Text = "12";
-            hoursDepartureTimeField.Text = "12";
-
             listFlights = new ObservableCollection<Flight>(db.flightsList());
             listAirline = new ObservableCollection<Airline>(db.airlineList());
             listAirports = new ObservableCollection<Airport>(db.airportList());

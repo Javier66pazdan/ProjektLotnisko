@@ -41,10 +41,21 @@ namespace ProjektLotnisko.UsersWindows
 
         private void btCancelTicket_Click(object sender, RoutedEventArgs e)
         {
-            if (TicketList1.SelectedValue != null){
+            editTicket("Anulowany");
+        }
+
+        private void TicketList1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedTicket = TicketList1.SelectedItem as Ticket;
+        }
+
+        public void editTicket(string newState)
+        {
+            if (TicketList1.SelectedValue != null)
+            {
 
                 Ticket editedTicket = selectedTicket;
-                editedTicket.State = "Anulowany";
+                editedTicket.State = newState;
                 editedTicket.TicketId = selectedTicket.TicketId;
                 db.editTicket(editedTicket);
                 listTickets[TicketList1.SelectedIndex] = editedTicket;
@@ -52,13 +63,13 @@ namespace ProjektLotnisko.UsersWindows
             }
             else
             {
-                MessageBox.Show("Wybierz bilet do anulowania", "Błąd");
+                MessageBox.Show("Wybierz bilet do zmiany", "Błąd");
             }
         }
 
-        private void TicketList1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void btPayTicket_Click(object sender, RoutedEventArgs e)
         {
-            selectedTicket = TicketList1.SelectedItem as Ticket;
+            editTicket("Opłacony");
         }
     }
 }
